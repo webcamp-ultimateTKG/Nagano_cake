@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "about" => "homes#about", as: "about"
 
+  resources :products, only: [:index, :show] do
+    collection do
+      get "search" => "products#search"
+    end
+  end
+
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords,], controllers: {
@@ -15,13 +21,6 @@ Rails.application.routes.draw do
       collection do
         get "unsubscribe" => "customers#unsubscribe"
         patch "out" => "customers#out"
-      end
-    end
-
-
-    resources :products, only: [:index, :show] do
-      collection do
-        get "search" => "products#search"
       end
     end
 
