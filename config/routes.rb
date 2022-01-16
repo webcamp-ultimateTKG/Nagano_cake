@@ -42,9 +42,6 @@ Rails.application.routes.draw do
     resources :ship_addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
-
-
-
   # 管理者用ルーティング
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
