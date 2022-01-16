@@ -9,8 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # 顧客用
-  # URL /customers/sign_in ...
+  # 顧客用ルーティング
   devise_for :customers,skip: [:passwords,], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -45,11 +44,11 @@ Rails.application.routes.draw do
 
 
 
-  # 管理者用
-  # URL /admin/sign_in ...
+  # 管理者用ルーティング
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+  
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
 

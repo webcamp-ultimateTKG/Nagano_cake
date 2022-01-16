@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2022_01_14_042914) do
     t.integer "customer_id", null: false
     t.string "post_code", null: false
     t.string "address", null: false
-    t.string "address_owner", null: false
+    t.string "owner", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
