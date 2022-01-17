@@ -7,18 +7,18 @@
   <div class="field">
     <%= f.label "名前" %>
     <%= f.label :last_name, "(姓)" %>
-    <%= f.email_field :last_name, autofocus: true, :placeholder => "令和" %>
+    <%= f.text_field :last_name, autofocus: true, :placeholder => "令和" %>
     <%= f.label :first_name, "(名)" %>
-    <%= f.email_field :first_name, autofocus: true, :placeholder => "道子" %>
+    <%= f.text_field :first_name, autofocus: true, :placeholder => "道子" %>
   </div>
 
   <!--フリガナ-->
   <div class="field">
     <%= f.label "フリガナ" %>
     <%= f.label :last_name_kana, "(セイ)" %>
-    <%= f.email_field :last_name_kana, autofocus: true, :placeholder => "レイワ" %>
+    <%= f.text_field :last_name_kana, autofocus: true, :placeholder => "レイワ" %>
     <%= f.label :first_name_kana, "(メイ)" %>
-    <%= f.email_field :first_name_kana, autofocus: true, :placeholder => "ミチコ" %>
+    <%= f.text_field :first_name_kana, autofocus: true, :placeholder => "ミチコ" %>
   </div>
 
   <!--メールアドレス-->
@@ -30,19 +30,19 @@
   <!--郵便番号-->
   <div class="field">
     <%= f.label :post_code, "郵便番号(ハイフンなし)" %>
-    <%= f.email_field :post_code, autofocus: true, :placeholder => "0000000" %>
+    <%= f.text_field :post_code, autofocus: true, :placeholder => "0000000" %>
   </div>
 
   <!--住所-->
   <div class="field">
     <%= f.label :address, "住所" %>
-    <%= f.email_field :address, autofocus: true, :placeholder => "東京都渋谷区代々木神園町0-0" %>
+    <%= f.text_field :address, autofocus: true, :placeholder => "東京都渋谷区代々木神園町0-0" %>
   </div>
 
   <!--電話番号-->
   <div class="field">
     <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
-    <%= f.email_field :phone_number, autofocus: true,  :placeholder => "0000000000" %>
+    <%= f.text_field :phone_number, autofocus: true,  :placeholder => "0000000000" %>
   </div>
 
   <!--パスワード-->
