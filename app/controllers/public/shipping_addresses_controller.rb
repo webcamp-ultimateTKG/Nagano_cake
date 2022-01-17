@@ -1,6 +1,6 @@
 class Public::ShippingAddressesController < ApplicationController
   #before_action :authenticate_user!
-  
+
   def index
     @customer = current_customer
     @shipping_addresses = ShippingAddress.all
