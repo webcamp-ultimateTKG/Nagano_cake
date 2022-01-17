@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 mt-5">
+    <div class="col-md-8 mt-5">
       <h4 class="bg-secondary col-4 text-light ">新規会員登録</h4>
     </div>
   </div>
   <div class="row">
-    <div class='mx-auto col-md-12 mt-5'>
+    <div class='mx-auto col-md-12 mt-3'>
       <%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
@@ -63,14 +63,13 @@
         </div>
 
         <div class="actions row">
-          <div class="col-sm-4"></div>
-          <%= f.submit "新規登録", class: "btn btn-success col-sm-3" %>
+          <%= f.submit "新規登録", class: "btn btn-success col-sm-3 offset-sm-4" %>
         </div>
       <% end %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 mt-5">
+    <div class="col-md-8 mt-3">
       <h4 class="bg-secondary col-4 text-light ">既に登録済みの方</h4>
     </div>
   </div>
