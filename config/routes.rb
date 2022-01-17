@@ -39,7 +39,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :ship_addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
   # 管理者用ルーティング
