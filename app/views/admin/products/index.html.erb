@@ -1,0 +1,4 @@
+<h1>商品一覧画面</h1>
+<% if admin_signed_in? %>
+  <%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link p-3' %>
+<% end %>
