@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 ml-5 mt-5">
+      <h4 class="bg-secondary col-4 text-light ">配送先登録/一覧</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-md-9 mt-5'>
+      <section class="adress-form">
+        <%= form_with model: @ship_address, local: true do |f| %>
+          <div class="field mb-2">
+            <%= f.label :post_code, "郵便番号(ハイフンなし)", class: "col-3" %>
+            <%= f.text_field :post_code, placeholder: "0000000" %>
+          </div>
+
+          <div class="field mb-2">
+            <%= f.label :post_code, "住所", class: "col-3" %>
+            <%= f.text_field :address, :size => "50", placeholder: "東京都渋谷区代々木神園町0-0" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :post_code, "宛名", class: "col-3" %>
+            <%= f.text_field :owner , class: "mr-5", placeholder: "田中太郎" %>
+          </div>
+
+          <div class="action text-right">
+            <%= f.submit "新規登録", class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </section>
+      <% if @ship_addresses.exists? %>
+        <section class="address-table mt-3">
+          <table class="table table-bordered">
+            <thead>
+              <td>郵便番号</td>
+              <td>住所</td>
+              <td>宛名</td>
+              <td></td>
+            </thead>
+            <tbody>
+              <% @ship_addresses.each do |ship_address| %>
+                <td><%= ship_address.post_code %></td>
+                <td><%= ship_address.address %></td>
+                <td><%= ship_address.owner %></td>
+                <td>
+                  <%= link_to "編集する", edit_ship_address_path(ship_address), class: "btn btn-success" %>
+                  <%= link_to "削除する", ship_address_path(ship_address), method: :delete, class: "btn btn-danger" %>
+                </td>
+              <% end %>
+            </tbody>
+          </table>
+        </section>
+      <% end %>
+    </div>
+  </div>
+</div>
