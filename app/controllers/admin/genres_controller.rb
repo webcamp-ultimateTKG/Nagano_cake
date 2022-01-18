@@ -1,6 +1,7 @@
 class Admin::GenresController < ApplicationController
 
   before_action :move_to_signed_in
+  before_action :if_not_admin
 
   def create
     @genre = Genre.new(genre_params)
@@ -30,12 +31,12 @@ class Admin::GenresController < ApplicationController
     end
 
     def move_to_signed_in
-      if admin_signed_in?
-        redirect_to admin_genres_path
-      else
-        root_path
+      unless admin_signed_in?
+        #管理者ログインしていない場合はtopページに行く
+        redirect_to root_path
       end
     end
 
-
 end
+
+
