@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-5">
+      <h4 class="bg-secondary col-4 text-light">新規会員登録</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class='mx-auto col-md-12 mt-3'>
+      <table class="table">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.full_name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= @customer.full_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.post_code %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td>
+            <% if @customer.is_deleted == false %>
+              有効
+            <% else %>
+              退会
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success btn-sm" %>
+      <%= link_to "履歴一覧を見る", admin_orders_path, class: "btn btn-primary btn-sm offset-sm-3" %>
+    </div>
+  </div>
+</div>
