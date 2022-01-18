@@ -26,9 +26,9 @@ class Admin::ProductsController < ApplicationController
       render :edit
     end
   end
-  
+
   def index
-    @products = Product.page(params[:page]).reverse_order
+    @products = Product.page(params[:page]).per(10)
   end
 
   def show
