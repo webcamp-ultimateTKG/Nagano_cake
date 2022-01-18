@@ -1,3 +1,17 @@
 // Place all the styles related to the admin/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pagination {
+  justify-content: center;
+  .page {
+    margin-right: 3%;
+  }
+  .next , .last{
+    padding-right: 1%;
+  }
+}
+
+.form-group {
+  padding-left: 20px;
+}
