@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-5">
-      <h4 class="bg-secondary col-4 text-light">新規会員登録</h4>
+      <h4 class="bg-secondary col-6 text-light"><%= @customer.full_name %>さんの会員詳細</h4>
     </div>
   </div>
   <div class="row">
     <div class='mx-auto col-md-12 mt-3'>
-      <table class="table">
+      <table class="table table-borderless">
         <tr>
-          <td>会員ID</td>
+          <td class="col-md-2">会員ID</td>
           <td><%= @customer.id %></td>
         </tr>
         <tr>
@@ -37,17 +37,15 @@
         </tr>
         <tr>
           <td>会員ステータス</td>
-          <td>
-            <% if @customer.is_deleted == false %>
-              有効
-            <% else %>
-              退会
-            <% end %>
-          </td>
+          <% if @customer.is_deleted == false %>
+            <td class="text-success">有効</td>
+          <% else %>
+            <td class="text-secondary">退会</td>
+          <% end %>
         </tr>
       </table>
-      <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success btn-sm" %>
-      <%= link_to "履歴一覧を見る", admin_orders_path, class: "btn btn-primary btn-sm offset-sm-3" %>
+      <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success btn-sm offset-md-2" %>
+      <%= link_to "履歴一覧を見る", admin_orders_path, class: "btn btn-primary btn-sm offset-sm-1" %>
     </div>
   </div>
 </div>
