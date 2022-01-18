@@ -1,9 +1,8 @@
 class Admin::ProductsController < ApplicationController
   before_action :move_to_signed_in
-  before_action :set_product, only[:new, :create, :edit, :update]
 
   def new
-    @prodcut = Product.new
+    @product = Product.new
   end
 
   def create
@@ -31,7 +30,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:genre_id, :name, :introduction, :price, :is_active)
+    params.require(:product).permit(:image, :genre_id, :name, :introduction, :price, :is_active)
   end
 
   def move_to_signed_in
@@ -41,7 +40,4 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  def set_product
-    @product = Product.find(params[:id])
-  end
 end
