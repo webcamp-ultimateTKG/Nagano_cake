@@ -30,10 +30,12 @@ class Admin::GenresController < ApplicationController
     end
 
     def move_to_signed_in
-      unless admin_signed_in?
-        #サインインしていないユーザーは管理者ログインページが表示される
-        redirect_to new_admin_session_path
+      if admin_signed_in?
+        redirect_to admin_genres_path
+      else
+        root_path
       end
     end
+
 
 end
