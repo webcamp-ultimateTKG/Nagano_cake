@@ -28,7 +28,7 @@
           </div>
         <% end %>
       </section>
-      <% if @ship_addresses.exists? %>
+      <% if @ship_addresses.present? %>
         <section class="address-table mt-3">
           <table class="table table-bordered">
             <thead>
