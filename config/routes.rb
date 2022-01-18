@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   # 顧客用ルーティング
   devise_for :customers,skip: [:passwords,], controllers: {
     registrations: "public/registrations",
@@ -39,7 +37,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :ship_addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
   # 管理者用ルーティング

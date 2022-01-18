@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class='col-md-9 mt-5'>
-      <%= form_with model: @shipping_address, local: true do |f| %>
+      <%= form_with model: @ship_address, local: true do |f| %>
         <div class="field mb-2">
           <%= f.label :post_code, "郵便番号(ハイフンなし)", class: "col-3" %>
           <%= f.text_field :post_code %>
