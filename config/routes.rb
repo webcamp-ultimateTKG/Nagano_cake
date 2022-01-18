@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
   # 顧客用ルーティング
-  devise_for :customers,skip: [:passwords,], controllers: {
+  devise_for :customers, skip: [:passwords, :registrations], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
+  devise_scope :customer do
+    get 'customers/cancel', to: 'public/registrations#cancel', as: :cancel_customer_registration
+    get 'customers/sign_up', to: 'public/registrations#new', as: :new_customer_registration
+    resource :customers, only: [:create], as: 'customer_registration', controller: 'public/registrations'
+  end
 
   scope module: :public do
     resource :customers, only: [:edit, :update] do
