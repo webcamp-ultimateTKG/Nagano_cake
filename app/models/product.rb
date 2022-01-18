@@ -10,4 +10,8 @@ class Product < ApplicationRecord
   validates :genre_id, presence: true
   validates :is_active, presence: true
 
+
+  def add_tax_price
+      (self.price * 1.10).round
+  end
 end

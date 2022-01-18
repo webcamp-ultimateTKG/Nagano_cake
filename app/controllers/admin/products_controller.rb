@@ -26,6 +26,14 @@ class Admin::ProductsController < ApplicationController
       render :edit
     end
   end
+  
+  def index
+    @products = Product.page(params[:page]).reverse_order
+  end
+
+  def show
+    @product = Product.find(params[:id])
+  end
 
   private
 
@@ -39,5 +47,4 @@ class Admin::ProductsController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
