@@ -1,7 +1,7 @@
 class Admin::GenresController < ApplicationController
 
   before_action :move_to_signed_in
-  before_action :if_not_admin
+  
 
   def create
     @genre = Genre.new(genre_params)
