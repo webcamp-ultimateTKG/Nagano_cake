@@ -6,8 +6,8 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4">
-     <%= attachment_image_tag @product, :image, fallback: "no_image.jpg", size: "40x40" %>
+    <div class="col-md-5">
+     <%= attachment_image_tag @product, :image, fallback: "no_image.jpg", size: "400x400" %>
     </div>
     <div class="col-md-4">
 
@@ -37,12 +37,13 @@
       <div>
         <h4>
           <% if @product.is_active == true %>
-            <td class="text-success">販売中</td>
+            <p class="text-success">販売中<p>
           <% else %>
-            <td class="text-danger">販売停止中</td>
+            <p class="text-danger">販売停止中<p>
           <% end %>
         </h4>
       </div>
+      <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success" %>
     </div>
   </div>
 </div>
