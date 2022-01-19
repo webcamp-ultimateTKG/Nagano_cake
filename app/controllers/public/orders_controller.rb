@@ -7,8 +7,9 @@ class Public::OrdersController < ApplicationController
 
   def create
     session[:user] = Order.new()
+    session[:user][:shipping_fee] = 800
 
-    #支払い方法のセッション情報
+
     if params[:payment_select] == "0"
       session[:user][:payment_method] = 0
     elsif params[:payment_select] == "1"
@@ -29,11 +30,18 @@ class Public::OrdersController < ApplicationController
       session[:user][:address] = params[:shipping_address]
       session[:user][:address_owner] = params[:direction]
     end
-    session[:user][:shipping_fee] = 800
+
     redirect_to confirm_orders_path
   end
 
   def confirm
+    @cart_products = current_customer.cart_products
+    @total = 0
+    @cart_products.each do |cart_product|
+      full_price = cart_product.product.add_tax_price * cart_product.quantity
+      @total += full_price
+    end
+
   end
 
   def thanx
