@@ -36,6 +36,8 @@ class Public::CartProductsController < ApplicationController
   end
 
   def destroy_all
+    current_customer.cart_products.destroy_all
+    redirect_to cart_products_path
   end
 
   private
