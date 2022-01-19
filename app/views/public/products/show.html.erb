@@ -1,27 +1,40 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-        <section class="sidebar">
-            <h4 class="sidebar-title">ジャンル検索</h4>
-            <ul class="sidebar-content">
-            <li class="sidebar-item">ケーキ</li>
-            <li class="sidebar-item">焼き菓子</li>
-            <li class="sidebar-item">プリン</li>
-            <li class="sidebar-item">キャンディ</li>
-            </ul>
-        </section>
-        </div>
-        <div class="col-md-4">
-            <%= attachment_image_tag @product, :image %>
-        </div>
-        <div class="col-md-5 mt-5">
-            <h3><%= @product.name %></h3>
-            <h4><%= @product.introduction %></h4>
-            <h3>¥<%= @product.add_tax_price.to_s(:delimited) %>(税込)</h3>
-            <%= form_with model: @cart_product, local: true do |f| %>
-                <%= f.select :quantity, *[1..10] %>
-                <%= f.submit "カートに入れる", class: "btn btn-success" %>
-            <% end %>
-        </div>
+  <div class="row">
+    <div class="col-md-3">
+      <section class="sidebar">
+        <h4 class="sidebar-title">ジャンル検索</h4>
+        <ul class="sidebar-content">
+          <li class="sidebar-item">ケーキ</li>
+          <li class="sidebar-item">焼き菓子</li>
+          <li class="sidebar-item">プリン</li>
+          <li class="sidebar-item">キャンディ</li>
+        </ul>
+      </section>
     </div>
+    <div>
+      <% if @cart_product.errors.any? %>
+        <div class="error_explanation">
+          <h3><%= pluralize(@cart_product.errors.count, "error") %> prohibited this obj from being saved:</h3>
+          <ul>
+            <% @cart_product.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= attachment_image_tag @product, :image %>
+    </div>
+    <div class="col-md-5 mt-5">
+      <h3><%= @product.name %></h3>
+      <h4><%= @product.introduction %></h4>
+      <h3>¥<%= @product.add_tax_price.to_s(:delimited) %>(税込)</h3>
+      <%= form_with model: @cart_product, url: cart_products_path, method: :post, local: true do |f| %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.select :quantity, *[1..10] %>
+        <%= f.submit "カートに入れる", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
 </div>
