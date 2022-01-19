@@ -1,5 +1,6 @@
 class Public::ProductsController < ApplicationController
 
+
   def index
     @genres = Genre.all
     if params[:genre_id]
@@ -10,4 +11,11 @@ class Public::ProductsController < ApplicationController
     end
 
   end
+
+  def show
+     @product = Product.find(params[:id])
+     @cart_product = CartProduct.new
+  end
+
+
 end
