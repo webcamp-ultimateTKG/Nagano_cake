@@ -3,6 +3,7 @@ class Public::CartProductsController < ApplicationController
 
   def index
     @cart_products = CartProduct.where(customer_id: current_customer.id)
+    @total = @cart_products.inject(0) { |sum, product| sum + product.subtotal }
   end
 
   def create
@@ -22,6 +23,10 @@ class Public::CartProductsController < ApplicationController
   end
 
   def update
+    cart_product = current_customer.cart_products.find_by(product_id: params[:cart_product][:product_id])
+    cart_product.quantity = params[:cart_product][:quantity].to_i
+    cart_product.save
+    redirect_to cart_products_path
   end
 
   def destroy
@@ -31,6 +36,8 @@ class Public::CartProductsController < ApplicationController
   end
 
   def destroy_all
+    current_customer.cart_products.destroy_all
+    redirect_to cart_products_path
   end
 
   private
