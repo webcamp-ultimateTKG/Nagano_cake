@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-5">
-      <h4 class="bg-secondary col-4 text-light">新規会員登録</h4>
+      <h4 class="col-md-6"><span class="title">新規会員登録</span></h4>
     </div>
   </div>
   <div class="row">
@@ -11,7 +11,7 @@
 
         <!--名前-->
         <div class="form-group row">
-          <%= f.label "名前", class: "col-sm-3 col-form-label" %>
+          <%= f.label "名前", class: "col-md-3 col-form-label" %>
           <%= f.label :last_name, "(姓)", class: "col-form-label col-sm-1" %>
           <%= f.text_field :last_name, autofocus: true, :placeholder => "令和", class: "form-control col-sm-3" %>
           <%= f.label :first_name, "(名)", class: "col-form-label col-sm-1" %>
@@ -20,7 +20,7 @@
 
         <!--フリガナ-->
         <div class="form-group row">
-          <%= f.label "フリガナ", class: "col-sm-3 col-form-label" %>
+          <%= f.label "フリガナ", class: "col-md-3 col-form-label" %>
           <%= f.label :last_name_kana, "(セイ)", class: "col-form-label col-sm-1" %>
           <%= f.text_field :last_name_kana, autofocus: true, :placeholder => "レイワ", class: "form-control col-sm-3" %>
           <%= f.label :first_name_kana, "(メイ)", class: "col-form-label col-sm-1" %>
@@ -29,53 +29,55 @@
 
         <!--メールアドレス-->
         <div class="form-group row">
-          <%= f.label :email, "メールアドレス", class: "col-sm-4 col-form-label" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@example.com", class: "form-control col-sm-3" %>
+          <%= f.label :email, "メールアドレス", class: "col-md-4 col-form-label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@example.com", class: "form-control col-md-3" %>
         </div>
 
         <!--郵便番号-->
         <div class="form-group row">
-          <%= f.label :post_code, "郵便番号(ハイフンなし)", class: "col-sm-4 col-form-label" %>
-          <%= f.text_field :post_code, autofocus: true, :placeholder => "0000000", class: "form-control col-sm-3" %>
+          <%= f.label :post_code, "郵便番号(ハイフンなし)", class: "col-md-4 col-form-label" %>
+          <%= f.text_field :post_code, autofocus: true, :placeholder => "0000000", class: "form-control col-md-3" %>
         </div>
 
         <!--住所-->
         <div class="form-group row">
-          <%= f.label :address, "住所", class: "col-sm-4 col-form-label" %>
-          <%= f.text_field :address, autofocus: true, :placeholder => "東京都渋谷区代々木神園町0-0", class: "form-control col-sm-7" %>
+          <%= f.label :address, "住所", class: "col-md-4 col-form-label" %>
+          <%= f.text_field :address, autofocus: true, :placeholder => "東京都渋谷区代々木神園町0-0", class: "form-control col-md-7" %>
         </div>
 
         <!--電話番号-->
         <div class="form-group row">
-          <%= f.label :phone_number, "電話番号(ハイフンなし)", class: "col-sm-4 col-form-label" %>
-          <%= f.text_field :phone_number, autofocus: true,  :placeholder => "0000000000", class: "form-control col-sm-3" %>
+          <%= f.label :phone_number, "電話番号(ハイフンなし)", class: "col-md-4 col-form-label" %>
+          <%= f.text_field :phone_number, autofocus: true,  :placeholder => "0000000000", class: "form-control col-md-3" %>
         </div>
 
         <!--パスワード-->
         <div class="form-group row">
-          <%= f.label :password, "パスワード(6文字以上)", class: "col-sm-4 col-form-label" %>
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-sm-3" %>
+          <%= f.label :password, "パスワード(6文字以上)", class: "col-md-4 col-form-label" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-md-3" %>
         </div>
 
+        <!--パスワード（確認用）-->
         <div class="form-group row">
-          <%= f.label :password_confirmation, "パスワード(確認用)", class: "col-sm-4 col-form-label" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-sm-3" %>
+          <%= f.label :password_confirmation, "パスワード(確認用)", class: "col-md-4 col-form-label" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-md-3" %>
         </div>
 
-        <div class="actions row">
-          <%= f.submit "新規登録", class: "btn btn-success col-sm-3 offset-sm-4" %>
+        <!--新規登録ボタン-->
+        <div class="action ml-3">
+          <%= f.submit "新規登録", class: "btn btn-success col-md-3 offset-md-4 mt-3" %>
         </div>
       <% end %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-8 mt-3">
-      <h4 class="bg-secondary col-4 text-light ">既に登録済みの方</h4>
+      <h4 class="col-md-6"><span class="title">既に登録済みの方</span></h4>
     </div>
   </div>
   <div class="row">
     <div class="col-md-8 mt-3 ml-5">
-      <%= render "public/shared/links" %>
+      <div class="this-link"><%= render "public/shared/links" %></div>
     </div>
   </div>
 </div>
