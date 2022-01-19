@@ -1,8 +1,21 @@
 class Public::ProductsController < ApplicationController
 
-    def show
-        @product = Product.find(params[:id])
-        @cart_product = CartProduct.new
+
+  def index
+    @genres = Genre.all
+    if params[:genre_id]
+      @genre = Genre.find(params[:genre_id])
+      @products = Product.where(genre_id:@genre.id).page(params[:page]).per(6)
+    else
+    @products = Product.page(params[:page]).per(6)
     end
+
+  end
+
+  def show
+     @product = Product.find(params[:id])
+     @cart_product = CartProduct.new
+  end
+
 
 end
