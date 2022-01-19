@@ -1,15 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <section class="sidebar">
-        <h4 class="sidebar-title">ジャンル検索</h4>
-        <ul class="sidebar-content">
-          <li class="sidebar-item">ケーキ</li>
-          <li class="sidebar-item">焼き菓子</li>
-          <li class="sidebar-item">プリン</li>
-          <li class="sidebar-item">キャンディ</li>
-        </ul>
-      </section>
+    <div class="col-3">
+      <%= render 'public/products/genre', genres: @genres %>
     </div>
     <div class="col-md-8 col-offset-1">
       <section class="main-visual">

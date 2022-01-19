@@ -1,15 +1,7 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2 offset-md-1">
-        <section class="sidebar">
-            <h5 class="sidebar-title">ジャンル検索</h5>
-            <ul class="sidebar-content">
-                <li class="sidebar-item">ケーキ</li>
-                <li class="sidebar-item">焼き菓子</li>
-                <li class="sidebar-item">プリン</li>
-                <li class="sidebar-item">キャンディ</li>
-            </ul>
-        </section>
+        <div class="col-3">
+          <%= render 'public/products/genre', genres: @genres %>
         </div>
         <div class="col-md-3 mt-5 ml-4 mr-4 text-center">
             <%= attachment_image_tag @product, :image, :fill, 350, 250, fallback: "no_image.jpg", size: "350×250" %>
