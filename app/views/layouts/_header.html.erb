@@ -5,6 +5,7 @@
       <a class="navbar-brand" href="/"><span>Nagano Cake</span></a>
       <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
+          <li class="nav-link text-light">ようこそ、<%= current_customer.last_name %>さん！</li>
           <%= link_to "マイページ", my_page_customers_path, class: "nav-link text-light" %>
           <%= link_to "商品一覧", '#', class: "nav-link text-light" %>
           <%= link_to "カート", '#', class: "nav-link text-light" %>
