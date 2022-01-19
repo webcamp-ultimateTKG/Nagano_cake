@@ -1,20 +1,20 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2 offset-md-1">
         <section class="sidebar">
-            <h4 class="sidebar-title">ジャンル検索</h4>
+            <h5 class="sidebar-title">ジャンル検索</h5>
             <ul class="sidebar-content">
-            <li class="sidebar-item">ケーキ</li>
-            <li class="sidebar-item">焼き菓子</li>
-            <li class="sidebar-item">プリン</li>
-            <li class="sidebar-item">キャンディ</li>
+                <li class="sidebar-item">ケーキ</li>
+                <li class="sidebar-item">焼き菓子</li>
+                <li class="sidebar-item">プリン</li>
+                <li class="sidebar-item">キャンディ</li>
             </ul>
         </section>
         </div>
-        <div class="col-md-4">
-            <%= attachment_image_tag @product, :image %>
+        <div class="col-md-3 mt-5 ml-4 mr-4 text-center">
+            <%= attachment_image_tag @product, :image, :fill, 350, 250, fallback: "no_image.jpg", size: "350×250" %>
         </div>
-        <div class="col-md-5 mt-5">
+        <div class="col-md-5 mt-5 text-left">
             <h3><%= @product.name %></h3>
             <h4><%= @product.introduction %></h4>
             <h3>¥<%= @product.add_tax_price.to_s(:delimited) %>(税込)</h3>
