@@ -1,24 +1,45 @@
 <div class="container">
   <div class="row">
-    <table class="table table-bordered">
-      <thead>
-        <th>商品名</th>
-        <th>単価</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th></th>
-      </thead>
-      <% @cart_products.each do |cart_product| %>
+    <div class="col-md-8 mt-5">
+      <h4 class="col-md-6"><span class="title">ショッピングカート</span></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class='mx-auto col-md-12 mt-3'>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </thead>
         <tbody>
-          <td><%= cart_product.product_id %></td>
-          <td></td>
-          <td><%= cart_product.quantity%></td>
-          <td></td>
-          <td>
-            <%= link_to "削除", cart_product_path(cart_product), method: :delete, local: true, class: "btn btn-danger"%>
-          </td>
+          <% @cart_products.each do |cart_product| %>
+            <tr>
+              <td><%= attachment_image_tag cart_product.product, :image, :fill, 112, 80, fallback: "no_image.jpg", size: "112×80" %><span class="product_name"><%= cart_product.product.name %></span></td>
+              <td><%= cart_product.product.add_tax_price.to_s(:delimited) %></td>
+              <%= form_with model: cart_product, local: true do |f| %>
+                <%= f.hidden_field :product_id, value: cart_product.product.id %>
+                <td>
+                  <%= f.select :quantity, *[1..10], selected: cart_product.quantity %>
+                  <%= f.submit "更新"%>
+                </td>
+              <% end %>
+              <td><%= cart_product.subtotal %></td>
+              <td>
+                <%= link_to "削除", cart_product_path(cart_product), method: :delete, local: true, class: "btn btn-danger"%>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
-      <% end %>
-    </table>
+      </table>
+      <table>
+        <tr>
+          <th>合計金額</th>
+          <td><%= @total.round.to_s(:delimited)%></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
