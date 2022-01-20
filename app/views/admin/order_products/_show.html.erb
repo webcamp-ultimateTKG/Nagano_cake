@@ -9,14 +9,13 @@
     </tr>
   </thead>
   <tbody>
-    <%= @order_products.each do |order_product| %>
+    <% order_products.each do |order_product| %>
       <tr>
         <td><%= order_product.product.name %></td>
         <td><%= order_product.tax_in_price %></td>
         <td><%= order_product.quantity %></td>
-        <td><%= order_product.subtotal %></td>
         <td>
-          <%= form_with model: order_product, local: true do |f| %>
+          <%= form_with model: @order_product, local: true do |f| %>
             <%= f.select :status, OrderProduct.making_statuses.keys %>
             <%= f.submit "更新", class: "btn btn-success" %>
           <% end %>

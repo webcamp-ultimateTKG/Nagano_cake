@@ -19,7 +19,7 @@
         <% elsif admin_signed_in? %>
           <li><%= link_to "商品一覧", admin_products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
           <li><%= link_to "会員一覧", admin_customers_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "注文履歴一覧", '#', class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
+          <li><%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
           <li><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-light btn btn-outline-light" %></li>
         <% else %>
