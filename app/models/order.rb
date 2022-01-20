@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :customer
-  has_many :order_products, through: :orders, source: :product, dependent: :destroy
+  has_many :order_products, dependent: :destroy
+  has_many :products, through: :order_products
 
 
   validates :customer_id, presence: :true
@@ -16,4 +17,5 @@ class Order < ApplicationRecord
   end
 
   enum payment_method: { credit_card: 0, transfer: 1 }
+
 end
