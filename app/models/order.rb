@@ -1,8 +1,7 @@
 class Order < ApplicationRecord
-
-
   belongs_to :customer
-  has_many :order_products, dependent: :destroy
+  has_many :order_products, through: :orders, source: :product, dependent: :destroy
+
 
   validates :customer_id, presence: :true
   validates :post_code, presence: :true
@@ -10,5 +9,10 @@ class Order < ApplicationRecord
   validates :owner, presence: :true
   validates :shipping_fee, presence: :true
   validates :charge, presence: :true
+
+
+  def total_quantity
+    self.order_products.all.sum(:quantity)
+  end
 
 end

@@ -25,8 +25,8 @@
               <td>
                 <%= form_with model: cart_product, local: true do |f| %>
                   <%= f.hidden_field :product_id, value: cart_product.product.id %>
-                    <%= f.select :quantity, *[1..10], selected: cart_product.quantity %>
-                    <%= f.submit "変更", class: "btn btn-success" %>
+                  <%= f.select :quantity, *[1..10], selected: cart_product.quantity %>
+                  <%= f.submit "変更", class: "btn btn-success" %>
                 <% end %>
               </td>
               <td><%= cart_product.subtotal %></td>

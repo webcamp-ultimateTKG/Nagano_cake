@@ -2,7 +2,7 @@ class Public::CartProductsController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    @cart_products = CartProduct.where(customer_id: current_customer.id)
+    @cart_products = current_customer.cart_products.all
     @total = @cart_products.inject(0) { |sum, product| sum + product.subtotal }
   end
 
