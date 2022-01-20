@@ -1,0 +1,26 @@
+<table class="table order-products">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>製作ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% order_products.each do |order_product| %>
+      <tr>
+        <td><%= order_product.product.name %></td>
+        <td><%= order_product.tax_in_price %></td>
+        <td><%= order_product.quantity %></td>
+        <td>
+          <%= form_with model: @order_product, local: true do |f| %>
+            <%= f.select :status, OrderProduct.making_statuses.keys %>
+            <%= f.submit "更新", class: "btn btn-success" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
