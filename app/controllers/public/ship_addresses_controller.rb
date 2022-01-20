@@ -2,13 +2,12 @@ class Public::ShipAddressesController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    @ship_addresses = ShipAddress.where(customer_id: current_customer.id)
+    @ship_addresses = current_customer.ship_addresses.all
     @ship_address = ShipAddress.new
   end
 
   def create
-    @ship_address = ShipAddress.new(ship_address_params)
-    @ship_address.customer_id = current_customer.id
+    @ship_address = current_customer.ship_addresses.new(ship_address_params)
     if @ship_address.save
       redirect_to ship_addresses_path
     else
@@ -21,8 +20,7 @@ class Public::ShipAddressesController < ApplicationController
   end
 
   def update
-    @ship_address = ShipAddress.find(params[:id])
-    @ship_address.customer_id = current_customer.id
+    @ship_address = current_customer.ship_addresses.find(params[:id])
     if @ship_address.update(ship_address_params)
       redirect_to ship_addresses_path
     else
