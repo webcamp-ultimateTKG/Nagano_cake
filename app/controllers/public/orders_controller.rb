@@ -16,19 +16,19 @@ class Public::OrdersController < ApplicationController
       session[:user][:payment_method] = 1
     end
 
-    #配送先登録のセッション情報
+
     if params[:address_select] == "0"
       session[:user][:post_code] = current_customer.post_code
       session[:user][:address] = current_customer.address
-      session[:user][:address_owner] = current_customer.full_name
+      session[:user][:owner] = current_customer.full_name
     elsif params[:address_select] == "1"
       session[:user][:post_code] =  ShipAddress.find(params[:address_id]).post_code
       session[:user][:address] = ShipAddress.find(params[:address_id]).address
-      session[:user][:address_owner] = ShipAddress.find(params[:address_id]).owner
+      session[:user][:owner] = ShipAddress.find(params[:address_id]).owner
     else
-      session[:user][:post_code] =  params[:postal_code]
-      session[:user][:address] = params[:shipping_address]
-      session[:user][:address_owner] = params[:direction]
+      session[:user][:post_code] =  params[:post_code]
+      session[:user][:address] = params[:address]
+      session[:user][:owner] = params[:owner]
     end
 
     redirect_to confirm_orders_path
