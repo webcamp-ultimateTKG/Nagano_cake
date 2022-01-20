@@ -7,61 +7,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    session[:customer] = Order.new()
-    session[:customer][:shipping_fee] = 800
-
-
-    if params[:payment_method] == "0"
-      session[:customer][:payment_method] = 0
-    elsif params[:payment_method] == "1"
-      session[:customer][:payment_method] = 1
-    end
-
-
-    if params[:address_select] == "0"
-      session[:customer][:post_code] = current_customer.post_code
-      session[:customer][:address] = current_customer.address
-      session[:customer][:owner] = current_customer.full_name
-    elsif params[:address_select] == "1"
-      session[:customer][:post_code] =  ShipAddress.find(params[:address_id]).post_code
-      session[:customer][:address] = ShipAddress.find(params[:address_id]).address
-      session[:customer][:owner] = ShipAddress.find(params[:address_id]).owner
-    elsif params[:address_select] == "2"
-      session[:customer][:post_code] =  params[:post_code]
-      session[:customer][:address] = params[:address]
-      session[:customer][:owner] = params[:owner]
-    end
-    unless session[:customer][:address] == "" || session[:customer][:owner] == "" || session[:customer][:post_code] == ""
-      redirect_to confirm_orders_path
-    else
-      @order = Order.new()
-      @address = current_customer.ship_addresses
-      render :new
-    end
-  end
-
-  def confirm
-
-    @cart_products = current_customer.cart_products
-    @total = 0
-    @cart_products.each do |cart_product|
-      full_price = cart_product.product.add_tax_price * cart_product.quantity
-      @total += full_price
-    end
-
-
-  end
-
-  def thanx
+    order = Order.new(order_params)
     cart_products = current_customer.cart_products
-    session[:customer][:shipping_fee] = 800
     @total = 0
     cart_products.each do |cart_product|
       full_price = cart_product.product.add_tax_price * cart_product.quantity
       @total += full_price
     end
-    order = Order.new(session[:customer])
-    order.charge = @total + session[:customer][:shipping_fee].to_i
+    order.charge = @total + params[:order][:shipping_fee].to_i
     order.customer_id = current_customer.id
     if order.save
     cart_products.each do |cart_product|
@@ -73,9 +26,54 @@ class Public::OrdersController < ApplicationController
       order_product.save
     end
       cart_products.destroy_all
+      redirect_to thanx_orders_path
     else
       redirect_to new_order_path
     end
+  end
+
+
+
+
+  def confirm
+    @order = Order.new
+    if params[:order][:address_select] == "0"
+      @order.post_code = current_customer.post_code
+      @order.address = current_customer.address
+      @order.owner = current_customer.full_name
+    elsif params[:order][:address_select] == "1"
+      @order.post_code =  ShipAddress.find(params[:order][:address_id]).post_code
+      @order.address = ShipAddress.find(params[:order][:address_id]).address
+      @order.owner = ShipAddress.find(params[:order][:address_id]).owner
+    elsif params[:order][:address_select] == "2"
+      @order.post_code =  params[:order][:post_code]
+      @order.address = params[:order][:address]
+      @order.owner = params[:order][:owner]
+    end
+
+    @order.payment_method = params[:order][:payment_method]
+    @order.shipping_fee = 800
+
+    @cart_products = current_customer.cart_products
+    @total = 0
+    @cart_products.each do |cart_product|
+      full_price = cart_product.product.add_tax_price * cart_product.quantity
+      @total += full_price
+    end
+    unless @order.post_code == "" || @order.address == "" || @order.owner == ""
+    render :confirm
+    else
+    @order = Order.new
+    @address = current_customer.ship_addresses
+    render :new
+    end
+
+
+
+  end
+
+  def thanx
+
   end
 
   def index
