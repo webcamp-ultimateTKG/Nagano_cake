@@ -9,7 +9,10 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-    @order = Order.find(params[:id])
+    order = Order.find(params[:id])
+    order.status = params[:status].to_i
+    order.save
+    redirect_to order_path(order)
   end
 
   def search
