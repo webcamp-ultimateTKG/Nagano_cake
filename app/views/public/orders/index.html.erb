@@ -17,7 +17,24 @@
               <td>ステータス</td>
               <td>注文詳細</td>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <% @orders.each do |order| %>
+                <td><%= order.created_at %></td>
+                <td>
+                  <%= order.post_code %>
+                  <%= order.address %>
+                  <%= order.address_owner %>
+                </td>
+                <td>
+                  <%= order.order_products.each do |order_product| %>
+                    <%= order_product.product.name %>
+                  <% end %>
+                </td>
+                <td><%= order.charge %></td>
+                <td><%= order.status %></td>
+                <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
+              <% end %>
+            </tbody>
           </table>
         </section>
       <% else %>
