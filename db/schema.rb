@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2022_01_18_024958) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+
+
   create_table "cart_products", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "product_id", null: false
@@ -73,7 +75,7 @@ ActiveRecord::Schema.define(version: 2022_01_18_024958) do
     t.integer "payment_method", default: 0, null: false
     t.string "post_code", null: false
     t.string "address", null: false
-    t.string "address_owner", null: false
+    t.string "owner", null: false
     t.integer "shipping_fee", null: false
     t.integer "charge", null: false
     t.integer "status", default: 0, null: false

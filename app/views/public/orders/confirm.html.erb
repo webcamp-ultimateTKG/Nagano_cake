@@ -1,0 +1,47 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center">注文情報入力</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-12">
+       <table class="table table-bordered">
+        <thead class="table-secondary">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+        </thead>
+        <tbody>
+          <% @cart_products.each do |cart_product| %>
+            <tr>
+              <td><%= attachment_image_tag cart_product.product, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "112×80" %><span class="product_name"><%= cart_product.product.name %></span></td>
+              <td><%= cart_product.product.add_tax_price.to_s(:delimited) %></td>
+              <td><%= cart_product.quantity %></td>
+              <td><%= cart_product.product.add_tax_price * cart_product.quantity %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="">
+      <table class="w-100">
+        <tr>
+          <td>送料</td>
+          <td class="text-right"><%= session[:user]["shipping_fee"] %>円</td>
+        </tr>
+        <tr>
+          <td>商品合計</td>
+          <td class="text-right"><%= @total %>円</td>
+        </tr>
+        <tr>
+          <td>請求金額</td>
+          <td class="text-right"><%= @total + session[:user]["shipping_fee"].to_i %>円</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
