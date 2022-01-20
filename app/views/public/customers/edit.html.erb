@@ -4,15 +4,10 @@
       <h4 class="bg-secondary col-4 text-light">会員情報編集</h4>
     </div>
   </div>
+  <%= render 'layouts/errors', obj: @customer %>
   <div class="row">
     <div class='mx-auto col-md-12 mt-3'>
       <%= form_with model: @customer, url: customers_path, local: true do |f| %>
-        <% if @customer.errors.any? %>
-          <%= @customer.errors.count %>件のエラーが発生しました
-          <% @customer.errors.full_messages.each do |message| %>
-            <%= message %>
-          <% end %>
-        <% end %>
 
         <!--名前-->
         <div class="form-group row">

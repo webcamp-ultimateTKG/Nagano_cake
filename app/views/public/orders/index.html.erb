@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 ml-5 mt-5">
+      <h4 class="bg-secondary col-4 text-light ">注文履歴一覧</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-md-9 mt-5'>
+      <% if @orders.present? %>
+        <section class="orders-index mt-3">
+          <table class="table table-bordered">
+            <thead>
+              <td>注文先</td>
+              <td>配送先</td>
+              <td>注文商品</td>
+              <td>支払金額</td>
+              <td>ステータス</td>
+              <td>注文詳細</td>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </section>
+      <% else %>
+        <p>お客様の注文履歴はありません。</p>
+      <% end %>
+    </div>
+  </div>
+</div>
