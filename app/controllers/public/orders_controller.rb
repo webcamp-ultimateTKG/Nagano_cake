@@ -34,7 +34,7 @@ class Public::OrdersController < ApplicationController
     unless session[:customer][:address] == "" || session[:customer][:owner] == "" || session[:customer][:post_code] == ""
       redirect_to confirm_orders_path
     else
-      @order = Order.new
+      @order = Order.new()
       @address = current_customer.ship_addresses
       render :new
     end
