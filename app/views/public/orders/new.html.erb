@@ -1,0 +1,53 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 mx-auto">
+      <h2 class="text-center">注文情報入力</h2>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+
+
+      <%= form_with(url: orders_path, local: true) do |f| %>
+			<h3>支払方法</h3>
+
+        <%= f.radio_button :payment_method, 0, checked: true %>
+	  		<%= f.label :クレジットカード %><br>
+	  		<%= f.radio_button :payment_method, 1 %>
+	  		<%= f.label :銀行振込 %>
+
+	  		<div class="form-group mt-4">
+          <h3>お届け先</h3>
+          <%= f.radio_button :address_select, 0 %>
+          <%= f.label :ご自身の住所 %>
+          <%= current_customer.address %><br>
+
+
+          <%= f.radio_button :address_select, 1 %>
+          <%= f.label :登録済住所から選択 %><br>
+          <%= f.collection_select(:address_id, @address, :id, :address) %>
+        </div>
+
+
+        <div><%= f.radio_button :address_select, 2 %>  新規住所登録</div>
+
+        <div class="form-group">
+          <%= f.label :"郵便番号(ハイフンなし)：" %>
+          <%= f.text_field :post_code %>
+        </div>
+        <div class="form-group">
+          <%= f.label :住所： %>
+          <%= f.text_field :address, size: "60x20" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :宛名： %>
+          <%= f.text_field :owner, class: "mb-4" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "購入確認へ", class: "btn btn-primary btn-lg mt-2" %>
+    	  </div>
+    	  <% end %>
+      </div>
+    </div>
+  </div>
