@@ -19,7 +19,7 @@
 
 	  		<div class="form-group mt-4">
           <h3>お届け先</h3>
-          <%= f.radio_button :address_select, 0 %>
+          <%= f.radio_button :address_select, 0, checked: true  %>
           <%= f.label :ご自身の住所 %>
           <%= current_customer.address %><br>
 
