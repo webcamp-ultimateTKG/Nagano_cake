@@ -15,4 +15,5 @@ class Order < ApplicationRecord
     self.order_products.all.sum(:quantity)
   end
 
+  enum payment_method: { credit_card: 0, transfer: 1 }
 end
