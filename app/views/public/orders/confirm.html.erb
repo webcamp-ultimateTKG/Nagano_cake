@@ -26,22 +26,45 @@
       </table>
     </div>
   </div>
-  <div class="col-sm-3">
-    <div class="">
-      <table class="w-100">
+  <div class="row">
+    <div class="col-md-4">
+      <table class="w-100 table table-bordered">
         <tr>
           <td>送料</td>
-          <td class="text-right"><%= session[:user]["shipping_fee"] %>円</td>
-        </tr>
-        <tr>
-          <td>商品合計</td>
-          <td class="text-right"><%= @total %>円</td>
-        </tr>
-        <tr>
-          <td>請求金額</td>
-          <td class="text-right"><%= @total + session[:user]["shipping_fee"].to_i %>円</td>
-        </tr>
-      </table>
+          <td class="text-right"><%= session[:customer]["shipping_fee"] %>円</td>
+          </tr>
+          <tr>
+            <td>商品合計</td>
+            <td class="text-right"><%= @total %>円</td>
+          </tr>
+          <tr>
+            <td>請求金額</td>
+            <td class="text-right"><%= @total + session[:customer]["shipping_fee"].to_i %>円</td>
+          </tr>
+        </table>
+      </div>
+
+    <div class="col-md-8 text-center">
+      <div class="border">
+        <h3>支払方法</h3>
+        <% if session[:customer]["payment_method"] == 0 %>
+          <h5>・クレジットカード払い</h5>
+        <% else %>
+          <h5>・銀行振り込み</h5>
+        <% end %>
+      </div>
+      <div class="border">
+        <h3>お届け先</h3>
+        <p>・〒
+        <%= session[:customer]["post_code"] %><%= session[:customer]["address"] %><span>　</span><%= session[:customer]["owner"] %>様宛
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <%= link_to "注文確定", thanx_orders_path, class: "btn btn-info btn-lg" %>
     </div>
   </div>
 </div>
+
