@@ -10,12 +10,12 @@
 
   <div class="row">
     <div class="col-md-10 col-md-offset-1 mx-auto">
-      <table class="table table-bordered">
+      <table class="table">
         <thead>
           <tr>
             <th>商品ID</th>
             <th style="width: 300px;">商品名</th>
-            <th>税抜き価格</th>
+            <th>税抜価格</th>
             <th style="width: 300px;">ジャンル</th>
             <th>ステータス</th>
           </tr>
@@ -26,12 +26,12 @@
             <tr>
               <td><%= product.id %></td>
               <td style="width: 300px;"><%= link_to product.name, admin_product_path(product)%></td>
-              <td><%= product.price %></td>
+              <td><%= product.price.to_s(:delimited) %></td>
               <td style="width: 300px;"><%= product.genre.name %></td>
               <% if product.is_active == true %>
                 <td class="text-success font-weight-bold">販売中</td>
               <% else %>
-                <td class="text-danger font-weight-bold">販売停止中</td>
+                <td class="text-secondary font-weight-bold">販売停止中</td>
               <% end %>
             </tr>
           <% end %>
