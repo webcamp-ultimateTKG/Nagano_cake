@@ -37,8 +37,11 @@ class Admin::ProductsController < ApplicationController
 
   def search
     keyword = params[:keyword]
+    if keyword == ""
+      redirect_to admin_products_path
+    else
     @products = Product.search(keyword).page(params[:page]).per(6)
-    @genres = Genre.all
+    end
   end
 
 
