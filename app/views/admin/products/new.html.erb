@@ -1,8 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mt-5">
-      <h4 class="bg-secondary col-4 text-light">商品新規登録</h4>
-    </div>
+    <h4 class="title">商品新規登録</h4>
   </div>
   <div class="row">
     <div class='mx-auto col-md-12 mt-3'>
@@ -25,7 +23,7 @@
 
         <div class="form-group row">
           <%= f.label :genre, "ジャンル", class: "col-form-label col-sm-2 offset-sm-3" %>
-          <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい", class: "form-control col-sm-3" %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい", class: "form-control col-sm-3 selectdiv" %>
         </div>
 
         <div class="form-group row">
@@ -33,20 +31,20 @@
           <%= f.text_field :price, :placeholder => "0000" , class: "form-control col-sm-3" %>円
         </div>
 
-        <div class="row">
+        <div class="form-group row">
           <%= f.label :is_active, "販売ステータス", class: "col-form-label col-sm-2 offset-sm-3" %>
-          <div>
+          <div class="radio">
             <%= f.radio_button :is_active, :true, checked: true %>
             <%= f.label "販売中" %>
           </div>
-          <div>
+          <div class="radio">
             <%= f.radio_button :is_active, :false %>
             <%= f.label "販売停止中" %>
           </div>
         </div>
 
-        <div class="actions row">
-          <%= f.submit "新規登録", class: "btn btn-success col-sm-3 offset-sm-3" %>
+        <div class="action mx-auto">
+          <%= f.submit "新規登録", class: "btn btn-success col-sm-3 offset-sm-3 btn-create" %>
         </div>
       <% end %>
     </div>
