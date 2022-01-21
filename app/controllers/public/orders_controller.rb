@@ -8,23 +8,22 @@ class Public::OrdersController < ApplicationController
 
   def create
     order = Order.new(order_params)
-    cart_products = current_customer.cart_products
-    @total = 0
-    cart_products.each do |cart_product|
-      full_price = cart_product.product.add_tax_price * cart_product.quantity
-      @total += full_price
-    end
-    order.charge = @total + params[:order][:shipping_fee].to_i
+
     order.customer_id = current_customer.id
+    # カート商品
+    cart_products = current_customer.cart_products
+    # 請求額
+    @total = cart_products.inject(0) { |sum, product| sum + product.subtotal }
+    order.charge = @total + params[:order][:shipping_fee].to_i
     if order.save
-    cart_products.each do |cart_product|
-      order_product = OrderProduct.new
-      order_product.product_id = cart_product.product.id
-      order_product.tax_in_price = cart_product.product.add_tax_price.to_s
-      order_product.quantity = cart_product.quantity
-      order_product.order_id = order.id
-      order_product.save
-    end
+      cart_products.each do |cart_product|
+        order_product = OrderProduct.new
+        order_product.product_id = cart_product.product.id
+        order_product.tax_in_price = cart_product.subtotal.to_s
+        order_product.quantity = cart_product.quantity
+        order_product.order_id = order.id
+        order_product.save
+      end
       cart_products.destroy_all
       redirect_to thanx_orders_path
     else
@@ -34,6 +33,17 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new
+
+    # 支払方法
+    @order.payment_method = params[:order][:payment_method]
+    # 配送料
+    @order.shipping_fee = 800
+    # カート商品
+    @cart_products = current_customer.cart_products
+    # 合計金額
+    @total = @cart_products.inject(0) { |sum, product| sum + product.subtotal }
+
+    # 配送先選択（ラジオボタン）
     if params[:order][:address_select] == "0"
       @order.post_code = current_customer.post_code
       @order.address = current_customer.address
@@ -48,21 +58,14 @@ class Public::OrdersController < ApplicationController
       @order.owner = params[:order][:owner]
     end
 
-    @order.payment_method = params[:order][:payment_method]
-    @order.shipping_fee = 800
-
-    @cart_products = current_customer.cart_products
-    @total = 0
-    @cart_products.each do |cart_product|
-      full_price = cart_product.product.add_tax_price * cart_product.quantity
-      @total += full_price
-    end
+    # 配送先が入力されていない場合
     unless @order.post_code == "" || @order.address == "" || @order.owner == ""
-    render :confirm
+      render :confirm
+    # 配送先が入力されている場合
     else
-    @order = Order.new
-    @address = current_customer.ship_addresses
-    render :new
+      @order = Order.new
+      @address = current_customer.ship_addresses
+      render :new
     end
   end
 
