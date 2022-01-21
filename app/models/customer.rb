@@ -7,14 +7,15 @@ class Customer < ApplicationRecord
   has_many :cart_products
   has_many :ship_addresses, dependent: :destroy
   has_many :orders
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :first_name_kana, presence: true
-  validates :last_name_kana, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :post_code, presence: true, numericality: {only_integer: true}
+
+  validates :first_name, presence: true, format: { with: VALID_NAME_REGEX }
+  validates :last_name, presence: true, format: { with: VALID_NAME_REGEX }
+  validates :first_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
+  validates :last_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :post_code, presence: true, format: { with: VALID_POST_CODE_REGEX }
   validates :address, presence: true
-  validates :phone_number, presence: true, numericality: {only_integer: true}
+  validates :phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
 
   def full_name
     self.last_name + " " + self.first_name

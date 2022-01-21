@@ -7,7 +7,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :introduction, presence: true
-  validates :price, presence: true, numericality: {only_integer: true}
+  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
   validates :genre_id, presence: true
 
   def add_tax_price

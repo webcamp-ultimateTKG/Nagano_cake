@@ -1,16 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-5 mt-5">
-      <h4 class="bg-secondary col-4 text-light text-center">商品一覧</h4>
-    </div>
-    <div class="col-6 mt-5">
-      <h2 class="float-right">
-          <%= link_to "",  new_admin_product_path, class: "fas fa-plus text-light btn btn-primary rounded-circle pt-3", style: "width:50px;height:50px;" %>
+    <h4 class="title">商品一覧</h4>
+    <div class="col-11">
+      <h2 class="float-right add-product-btn">
+          <%= link_to "",  new_admin_product_path, class: "fas fa-plus-circle" %>
       </h2>
     </div>
   </div>
 
-  <div class="row mt-5">
+  <div class="row">
     <div class="col-md-10 col-md-offset-1 mx-auto">
       <table class="table table-bordered">
         <thead>
@@ -31,9 +29,9 @@
               <td><%= product.price %></td>
               <td style="width: 300px;"><%= product.genre.name %></td>
               <% if product.is_active == true %>
-                <td class="text-success">販売中</td>
+                <td class="text-success font-weight-bold">販売中</td>
               <% else %>
-                <td class="text-danger">販売停止中</td>
+                <td class="text-danger font-weight-bold">販売停止中</td>
               <% end %>
             </tr>
           <% end %>
