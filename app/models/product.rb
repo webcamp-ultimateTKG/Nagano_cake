@@ -14,4 +14,8 @@ class Product < ApplicationRecord
     (self.price * 1.10).round
   end
 
+  def self.search(keyword)
+    @product = Product.where("name LIKE?","%#{keyword}%")
+  end
+
 end

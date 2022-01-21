@@ -34,11 +34,19 @@
   </div>
   <div class="px-3 py-2 border-bottom mb-3">
     <div class="container d-flex flex-wrap justify-content-center">
-      <form class="col-12 col-lg-6 mb-2 mb-lg-0 me-lg-auto">
-        <%= form_with url: search_products_path, method: :get, local: true do |f| %>
-          <%= f.text_field :keyword , placeholder: "Search", class: "form-control" %>
+      <div class="col-12 col-lg-6 mb-2 mb-lg-0 me-lg-auto">
+        <% if admin_signed_in? %>
+          <%= form_with url: search_admin_products_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword , placeholder: "Search", class: "form-control", autocomplete: 'off' %>
+          <% f.submit %>
+          <% end %>
+        <% else %>
+          <%= form_with url: search_products_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword , placeholder: "Search", class: "form-control", autocomplete: 'off' %>
+          <% f.submit %>
+          <% end %>
         <% end %>
-      </form>
+      </div>
     </div>
   </div>
   </header>

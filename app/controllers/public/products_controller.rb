@@ -23,4 +23,10 @@ class Public::ProductsController < ApplicationController
     end
   end
 
+  def search
+    keyword = params[:keyword]
+    @products = Product.search(keyword).page(params[:page]).per(6)
+    @genres = Genre.all
+  end
+
 end
