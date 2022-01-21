@@ -3,7 +3,6 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @address = current_customer.ship_addresses
   end
 
   def create
