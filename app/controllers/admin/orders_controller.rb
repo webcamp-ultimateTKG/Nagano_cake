@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @orders = Order.all.page(params[:page]).per(10)
+    @orders = Order.all.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
@@ -28,7 +28,7 @@ class Admin::OrdersController < ApplicationController
 
   def search
     @customer = Customer.find(params[:customer_id])
-    @orders = Order.where(customer_id: params[:customer_id]).page(params[:page]).per(10)
+    @orders = Order.where(customer_id: params[:customer_id]).page(params[:page]).per(10).order(created_at: :desc)
   end
 
   private
