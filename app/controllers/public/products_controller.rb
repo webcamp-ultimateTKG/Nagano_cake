@@ -25,8 +25,12 @@ class Public::ProductsController < ApplicationController
 
   def search
     keyword = params[:keyword]
-    @products = Product.search(keyword).page(params[:page]).per(6)
-    @genres = Genre.all
+    if keyword == ""
+      redirect_to products_path
+    else
+      @products = Product.search(keyword).page(params[:page]).per(6)
+      @genres = Genre.all
+    end
   end
 
 end

@@ -1,12 +1,8 @@
 <div class="container">
+  <% if @products.present? %>
   <div class="row">
     <div class="col-5 mt-5">
       <h4 class="bg-secondary col-4 text-light text-center">検索結果</h4>
-    </div>
-    <div class="col-6 mt-5">
-      <h2 class="float-right">
-          <%= link_to "",  new_admin_product_path, class: "fas fa-plus text-light btn btn-primary rounded-circle pt-3", style: "width:50px;height:50px;" %>
-      </h2>
     </div>
   </div>
 
@@ -42,5 +38,12 @@
       <%= paginate @products %>
     </div>
   </div>
+  <% else %>
+    <div class="row mt-5">
+      <div class="col-12 mt-5">
+        <h4 class="text-danger text-center">検索ワードにヒットしませんでした</h4>
+      </div>
+    </div>
+  <% end %>
 </div>
 
