@@ -1,16 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 mt-5">
-      <h4 class="bg-secondary col-5 text-light mb-5 pl-5 pr-4">ジャンル編集</h4>
-    </div>
+    <h4 class="title">ジャンル編集</h4>
   </div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 my-4">
       <%= form_with model:@genre, url: admin_genre_path, local: true do |f| %>
         <div class="field mb-3">
-          <%= f.label :name, "ジャンル名", class: "col-3" %>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ジャンル名" %>
+          <%= f.label :name, "ジャンル名", class: "mr-5 font-weight-bold" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ジャンル名", size: "31x20" %>
           <%= f.submit "変更を保存", class: "btn btn-success px-3 pl-4 pr-4 ml-5" %>
         </div>
       <% end %>
