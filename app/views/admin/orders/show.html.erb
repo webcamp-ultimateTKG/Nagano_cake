@@ -8,7 +8,7 @@
     <div class='mx-auto col-md-12 mt-3'>
       <table class="table table-borderless order-show">
         <tr>
-          <th class="co">購入者</th>
+          <th class>購入者</th>
           <td><%= @order.customer.full_name %></td>
         </tr>
         <tr>
@@ -29,7 +29,7 @@
         <tr>
           <th>注文ステータス</th>
           <td>
-            <%= form_with model: @order, local: true do |f| %>
+            <%= form_with model: @order, url: admin_order_path(@order), local: true do |f| %>
               <%= f.select :status, Order.statuses.keys %>
               <%= f.submit "更新", class: "btn btn-success" %>
             <% end %>
