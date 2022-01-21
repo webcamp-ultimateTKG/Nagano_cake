@@ -8,6 +8,7 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_products = @order.order_products
+    @total = @order_products.inject(0) { |sum, product| sum + product.subtotal }
   end
 
   def update
@@ -16,9 +17,9 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
     @order_products = @order.order_products
 
-    if @order.status == "入金確認"
+    if @order.status == "payment_confirmation"
       @order_products.each do |order_product|
-        order_product.making_status = "製作待ち"
+        order_product.making_status = "waiting"
         order_product.save
       end
     end

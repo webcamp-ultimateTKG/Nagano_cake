@@ -8,14 +8,14 @@ class Admin::OrderProductsController < ApplicationController
     @order_product.making_status = params[:order_product][:making_status].to_i
     @order_product.update(order_product_params)
 
-    if @order_products.where(making_status: "製作中").count >= 1
-      @order.status = "製作中"
+    if @order_products.where(making_status: "making").count >= 1
+      @order.status = "making"
       @order.save
     end
 
-    if @order.order_products.count == @order_products.where(making_status: "製作完了").count
-       @order.status = "発送準備中"
-       @order.save
+    if @order.order_products.count == @order_products.where(making_status: "completed").count
+      @order.status = "shipping_preparation"
+      @order.save
     end
     redirect_to request.referer
   end
