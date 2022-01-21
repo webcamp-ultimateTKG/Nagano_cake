@@ -11,10 +11,18 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-    order = Order.find(params[:id])
-    order.status = params[:status].to_i
-    order.save
-    redirect_to order_path(order)
+    @order = Order.find(params[:id])
+    @order.status = params[:order][:status].to_i
+    @order.update(order_params)
+    @order_products = @order.order_products
+
+    if @order.status == "入金確認"
+      @order_products.each do |order_product|
+        order_product.making_status = "製作待ち"
+        order_product.save
+      end
+    end
+    redirect_to request.referer
   end
 
   def search
@@ -23,6 +31,6 @@ class Admin::OrdersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:payment_method, :post_code, :address, :owner, :shipping_fee, :charge, :status)
+      params.require(:order).permit(:status)
     end
 end
