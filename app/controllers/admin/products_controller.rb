@@ -35,6 +35,13 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def search
+    keyword = params[:keyword]
+    @products = Product.search(keyword).page(params[:page]).per(6)
+    @genres = Genre.all
+  end
+
+
   private
 
   def product_params

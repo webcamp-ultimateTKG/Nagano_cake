@@ -54,7 +54,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
 
-    resources :products, except: [:destroy]
+    resources :products, except: [:destroy] do
+      collection do
+        get "search"
+      end
+    end
 
     resources :genres, only: [:index, :create, :edit, :update]
 
