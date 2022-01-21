@@ -32,9 +32,6 @@ class Public::OrdersController < ApplicationController
     end
   end
 
-
-
-
   def confirm
     @order = Order.new
     if params[:order][:address_select] == "0"
@@ -67,13 +64,9 @@ class Public::OrdersController < ApplicationController
     @address = current_customer.ship_addresses
     render :new
     end
-
-
-
   end
 
   def thanx
-
   end
 
   def index
@@ -82,8 +75,8 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = current_customer.orders.find(params[:id])
-    @order_products = @orders.order_products
-    @total = @order_products.inject(0) { |sum, product| sum + order_product.subtotal }
+    @order_products = @order.order_products
+    @total = @order_products.inject(0) { |sum, product| sum + product.subtotal }
   end
 
   private
