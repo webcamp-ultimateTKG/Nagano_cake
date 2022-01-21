@@ -1,14 +1,17 @@
 class Public::HomesController < ApplicationController
+  before_action :set_products, only: [:top]
+
   def top
     @genres = Genre.all
-    if params[:genre_id]
-      @genre = Genre.find(params[:genre_id])
-      @products = Product.where(genre_id:@genre.id).page(params[:page]).per(6)
-    else
-      @products = Product.page(params[:page]).per(6)
-    end
+    @products = @new_products.first(4)
   end
 
   def about
   end
+
+  private
+  def set_products
+    @new_products = Product.all.order('created_at DESC')
+  end
+
 end

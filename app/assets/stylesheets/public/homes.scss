@@ -17,24 +17,38 @@
 }
 
 .main-visual {
-  background-color: orange;
+  background-image: url(cake.jpg);
+
+
+  background-position: center;
   height: 300px;
-  widths: 100%;
+  width: 100%;
   text-align: center;
+
+}
   .mv-content {
+    background-color:rgba(255,255,255,0.6);
     height: 300px;
     padding-top: 80px;
   }
   .mv-title {
-    color :#fafafa;
+
+    color : black;
     margin-bottom: 10px;
   }
   .mv-text {
-    color :#fafafa;
+    margin-top: 40px;
+    color : black;
   }
-}
+
 
 //-----------about------------//
 .about-content {
   text-align: center;
+}
+.about-image {
+  height: 450px;
+  width: 60%;
+  background-image: url(cake2.jpg);
+  background-size: cover;
 }
