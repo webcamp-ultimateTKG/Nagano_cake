@@ -5,4 +5,7 @@
 .order-total {
   position: absolute;
   bottom: 0;
+  .charge {
+    padding-bottom: 0;
+  }
 }

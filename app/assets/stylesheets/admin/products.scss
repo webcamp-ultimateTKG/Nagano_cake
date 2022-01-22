@@ -3,9 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .add-product-btn {
+  position: relative;
+  right: 120px;
+  top: 10px;
   :hover {
     text-decoration: none;
-    color: #28a745;
   }
 }
 

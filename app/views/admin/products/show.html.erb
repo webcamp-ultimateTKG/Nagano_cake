@@ -4,10 +4,10 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4 col-sm-12 mt-3">
-     <%= attachment_image_tag @product, :image, size: "300x200", format: 'jpeg', fallback: "no_image.jpg" %>
+    <div class="col-lg-3 mt-3 text-center">
+     <%= attachment_image_tag @product, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg" %>
     </div>
-    <div class="col-md-7">
+    <div class="col-lg-8 offset-md-1">
       <table class="table table-borderless">
         <tr>
           <td class="col-md-3 font-weight-bold">商品名</td>
@@ -22,9 +22,9 @@
           <td><%= @product.genre.name %></td>
         </tr>
         <tr>
-          <td class="font-weight-bold">税込価格<br>（税抜価格）</td>
+          <td class="font-weight-bold">税込価格<br>(税抜価格)</td>
           <td class="font-weight-bold h5 align-middle">
-            <%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)<span class="show-yen">円</span>
+            <%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>) <span class="show-yen">円</span>
           </td>
         </tr>
         <tr>
