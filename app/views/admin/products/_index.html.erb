@@ -1,0 +1,30 @@
+<div class="col-md-10 col-md-offset-1 mx-auto mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.id %></td>
+              <td style="width: 300px;"><%= link_to product.name, admin_product_path(product)%></td>
+              <td><%= product.price.to_s(:delimited) %></td>
+              <td style="width: 300px;"><%= product.genre.name %></td>
+              <% if product.is_active == true %>
+                <td class="text-success font-weight-bold">販売中</td>
+              <% else %>
+                <td class="text-secondary font-weight-bold">販売停止中</td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @products %>
+    </div>

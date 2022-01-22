@@ -7,6 +7,20 @@ th, td{
   line-height: 60px;
 }
 
+.table-back{
+  background-color: #EDEDED;
+}
+
+.my-table td {
+  border: solid 1px black !important;
+  font-weight   : normal;
+}
+
+.my-table th {
+  border: solid 1px black !important;
+  font-weight   : normal;
+}
+
 .selectdiv select {
   width: 950px;
 }

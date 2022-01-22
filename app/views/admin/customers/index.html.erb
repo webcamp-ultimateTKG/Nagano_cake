@@ -1,10 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 mt-5">
-      <h4 class="bg-secondary col-3 text-light mb-5 ">会員一覧</h4>
-    </div>
+    <h4 class="title">会員一覧</h4>
   </div>
-
   <div class="row">
     <div class="col-md-8 mx-auto">
       <table class="table table-borderd">
@@ -20,9 +17,9 @@
             <td><%= link_to customer.full_name, admin_customer_path(customer) %></td>
             <td><%= customer.email %></td>
             <% if customer.is_deleted == false %>
-              <td class="text-success">有効</td>
+              <td class="text-success font-weight-bold">有効</td>
             <% else %>
-              <td class="text-secondary">退会</td>
+              <td class="text-secondary font-weight-bold">退会</td>
             <% end %>
           </tbody>
         <% end %>
