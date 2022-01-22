@@ -5,9 +5,9 @@ class Public::ProductsController < ApplicationController
     @genres = Genre.all
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
-      @products = Product.where(genre_id:@genre.id).page(params[:page]).per(6)
+      @products = Product.where(genre_id:@genre.id).page(params[:page]).per(6).order(created_at: :desc)
     else
-      @products = Product.page(params[:page]).per(6)
+      @products = Product.page(params[:page]).per(6).order(created_at: :desc)
     end
   end
 
@@ -15,12 +15,6 @@ class Public::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart_product = CartProduct.new
     @genres = Genre.all
-    if params[:genre_id]
-      @genre = Genre.find(params[:genre_id])
-      @products = Product.where(genre_id:@genre.id).page(params[:page]).per(6)
-    else
-      @products = Product.page(params[:page]).per(6)
-    end
   end
 
   def search
