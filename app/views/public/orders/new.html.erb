@@ -7,7 +7,7 @@
   <div class="row">
     <div class='mx-auto col-md-12 mt-3'>
       <%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
-			<h3>支払方法</h3>
+			<h5 class="subtitle">支払方法</h5>
 
         <div class="form-group">
           <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
@@ -21,38 +21,58 @@
     </div>
     <div class="row">
       <div class='mx-auto col-md-12 mt-3'>
-        <h3>お届け先</h3>
-
-          <div class="form-group">
-            <%= f.radio_button :address_select, 0, checked: true %>
-            <%= f.label "ご自身の住所" %>
-            <%= current_customer.address %>
-          </div>
-          <div class="form-group">
-            <%= f.radio_button :address_select, 1 %>
-            <%= f.label "登録済住所から選択" %><br>
-            <%= f.select :address_id, options_from_collection_for_select(ShipAddress.all, :id, :with_owner_full_address) %>
-          </div>
-          <div class="form-group mb-0">
-            <%= f.radio_button :address_select, 2 %>
-            <%= f.label "新しいお届け先" %>
-          </div>
-          <div class="form-group row ml-3">
-            <%= f.label "郵便番号(ハイフンなし)", class: "col-form-label col-md-3" %>
-            <%= f.text_field :post_code, :placeholder => "0000000", class: "form-control col-md-3" %>
-          </div>
-          <div class="form-group row ml-3">
-            <%= f.label "住所", class: "col-form-label col-md-3" %>
-            <%= f.text_field :address, :placeholder => "東京都渋谷区代々木神園町0-0", class: "form-control col-md-7" %>
-          </div>
-          <div class="form-group row ml-3">
-            <%= f.label "宛名", class: "col-form-label col-md-3" %>
-            <%= f.text_field :owner, :placeholder => "令和道子", class: "form-control col-md-3" %>
-          </div>
-          <div class="form-group">
-            <%= f.submit "確認画面へ進む", class: "btn btn-primary btn-lg mt-2" %>
-      	  </div>
-    	  <% end %>
+        <h5 class="subtitle">お届け先</h5>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-md-12 ml-3">
+      <%= f.radio_button :address_select, 0, checked: true %>
+      <%= f.label "ご自身の住所" %></br>
+        <div class="ml-5">
+          <%= current_customer.owner_address %></br>
+        </div>
+        <div class="ml-5">
+          <%= current_customer.owner_full_name %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 ml-3 mt-3">
+        <%= f.radio_button :address_select, 1 %>
+        <%= f.label "登録済住所から選択" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 ml-3">
+        <div class="selectdiv ml-4">
+          <%= f.select :address_id, options_from_collection_for_select(ShipAddress.all, :id, :full_address) %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 ml-3 mt-3">
+      <%= f.radio_button :address_select, 2 %>
+      <%= f.label "新しいお届け先" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 ml-3 mt-3">
+        <div class="form-group row ml-1">
+          <%= f.label "郵便番号(ハイフンなし)", class: "col-form-label col-md-3" %>
+          <%= f.text_field :post_code, :placeholder => "0000000", class: "form-control col-md-3" %>
+        </div>
+        <div class="form-group row ml-1">
+          <%= f.label "住所", class: "col-form-label col-md-3" %>
+          <%= f.text_field :address, :placeholder => "東京都渋谷区代々木神園町0-0", class: "form-control col-md-7" %>
+        </div>
+        <div class="form-group row ml-1">
+          <%= f.label "宛名", class: "col-form-label col-md-3" %>
+          <%= f.text_field :owner, :placeholder => "令和道子", class: "form-control col-md-3" %>
+        </div>
+        <div class="form-group row">
+          <%= f.submit "確認画面へ進む", class: "btn btn-primary btn-lg mt-2 col-md-2 offset-md-5" %>
+    	  </div>
+  	  </div>
+	  </div>
+  <% end %>
+</div>
