@@ -46,8 +46,8 @@
     <div class='col-md-3 offset-md-1 mt-3'>
       <%= link_to "買い物を続ける", root_path, class: "btn btn-primary"%>
     </div>
-    <div class='col-md-5 offset-md-3 mt-3'>
-      <table class="table table-bordered">
+    <div class='col-md-4 offset-md-4 mt-3'>
+      <table class="table table-bordered cart_total_table">
         <tr>
           <th>合計金額</th>
           <td><%= @total.round.to_s(:delimited)%></td>

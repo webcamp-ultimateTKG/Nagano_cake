@@ -34,3 +34,12 @@ th{
   margin-left: 10px;
   margin-bottom: 3px;
 }
+
+.cart_total_table{
+  width: 300px!important;
+  margin: 0 0 0 auto;
+}
+
+.cart_total_table th, .cart_total_table td{
+  width: 50%;
+}
