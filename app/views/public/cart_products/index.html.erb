@@ -1,4 +1,5 @@
 <div class="container">
+  <% if @cart_products.present? %>
   <div class="row">
     <div class="col-md-8 mt-5">
       <h4 class="col-md-6"><span class="title">ショッピングカート</span></h4>
@@ -9,8 +10,8 @@
   </div>
   <div class="row">
     <div class='mx-auto col-md-12 mt-3'>
-      <table class="table table-bordered">
-        <thead class="table-secondary">
+      <table class="table table-bordered cart_table">
+        <thead>
           <th>商品名</th>
           <th>単価(税込)</th>
           <th>数量</th>
@@ -25,11 +26,13 @@
               <td>
                 <%= form_with model: cart_product, local: true do |f| %>
                   <%= f.hidden_field :product_id, value: cart_product.product.id %>
+                <div class="selectdiv" id="cart_selectdiv">
                   <%= f.select :quantity, *[1..10], selected: cart_product.quantity %>
-                  <%= f.submit "変更", class: "btn btn-success" %>
+                </div>
+                  <%= f.submit "変更", class: "btn btn-success btn-change" %>
                 <% end %>
               </td>
-              <td><%= cart_product.subtotal %></td>
+              <td><%= cart_product.subtotal.to_i.to_s(:delimited) %></td>
               <td>
                 <%= link_to "削除する", cart_product_path(cart_product), method: :delete, local: true, class: "btn btn-danger ml-4" %>
               </td>
@@ -46,15 +49,33 @@
     <div class='col-md-5 offset-md-3 mt-3'>
       <table class="table table-bordered">
         <tr>
-          <th class="table-secondary">合計金額</th>
+          <th>合計金額</th>
           <td><%= @total.round.to_s(:delimited)%></td>
         </tr>
       </table>
     </div>
   </div>
   <div class="row">
-    <div class='col-md-2 offset-md-5 mt-5'>
-      <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success"%>
+    <div class='col-md-3 mx-auto mt-5'>
+      <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success btn-lg d-block"%>
     </div>
   </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-8 mt-5">
+      <h4 class="col-md-6"><span class="title">ショッピングカート</span></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-md-10 offset-md-1 nothing_msg'>
+      <h5 class="text-center">ショッピングカートに商品が登録されていません。</h5>
+      <p class="text-center">「買い物を続ける」ボタンから、</br>商品を選択して、カートに追加してください。</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-md-3 mx-auto'>
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary btn-lg d-block"%>
+    </div>
+  </div>
+  <% end %>
 </div>

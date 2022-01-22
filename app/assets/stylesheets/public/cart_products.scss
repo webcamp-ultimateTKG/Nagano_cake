@@ -5,3 +5,32 @@
 .product_name{
   padding-left: 20px;
 }
+
+th, td{
+  height: 60px;
+  line-height: 60px;
+}
+
+th{
+  background-color: #f3f3f3;
+}
+
+.cart_table th:first-child{
+  width: 42%;
+}
+
+.cart_table th:nth-child(n+2){
+  width: 14%;
+}
+
+#cart_selectdiv select {
+  width: 60px;
+  padding: 0 5px;
+}
+
+.btn-change{
+  width: 45px;
+  padding: 10px 5px!important;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
