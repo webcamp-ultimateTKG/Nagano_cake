@@ -23,11 +23,11 @@
         </tr>
         <tr>
           <th class="table-back" style="width: 200px;">郵便番号</th>
-          <td style="width: 528px;"><%= @customer.post_code.to_s.insert(3, "-") %></td>
+          <td style="width: 528px;">〒<%= @customer.post_code.to_s.insert(3, "-") %></td>
         </tr>
         <tr>
           <th class="table-back" style="width: 200px;">住所</th>
-          <td style="width: 528px;"><%= @customer.address %></td>
+          <td style="width: 528px;"><%= @customer.address.truncate(50) %></td>
         </tr>
         <tr>
           <th class="table-back" style="width: 200px;">電話番号</th>
