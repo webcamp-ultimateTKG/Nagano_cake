@@ -5,8 +5,13 @@ class ShipAddress < ApplicationRecord
   validates :address, presence: true
   validates :owner, presence: true, format: { with: VALID_NAME_REGEX }
 
-  def full_address
+  def with_owner_full_address
     '〒' + post_code.to_s.insert(3, "-") + ' ' + address + ' ' + owner
   end
+
+  def full_address
+    '〒' + post_code.to_s.insert(3, "-") + ' ' + address
+  end
+
 
 end
