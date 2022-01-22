@@ -15,16 +15,26 @@ thead {
   background-color: #f7f7f7;
 }
 
-.action{
-  text-align: center;
-  .btn {
-    margin: 0;
+.product-form {
+ .action{
+    text-align: center;
+    .btn {
+      margin: 0;
+    }
   }
-}
-
-.new-yen {
-  padding-top: 6px;
-  margin-left: 8px;
+  .new-yen {
+    padding-top: 6px;
+    margin-left: 8px;
+  }
+  .selectdiv select {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    margin-left: 20px;
+  }
+  .selectdiv:after {
+    top: 15px;
+  }
 }
 
 .show-yen {
