@@ -104,7 +104,7 @@
   <div class="row">
     <div class="col-md-12 ml-3">
       <div class="selectdiv ml-4">
-        <%= f.select :address_id, options_from_collection_for_select(ShipAddress.all, :id, :full_address) %>
+        <%= f.select :address_id, options_from_collection_for_select(ShipAddress.all, :id, :full_address),{},{class: "address_wrap"} %>
       </div>
     </div>
   </div>
