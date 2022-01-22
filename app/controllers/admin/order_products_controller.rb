@@ -17,7 +17,6 @@ class Admin::OrderProductsController < ApplicationController
       @order.status = "shipping_preparation"
       @order.save
     end
-    redirect_to request.referer
   end
 
   private
