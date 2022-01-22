@@ -14,4 +14,22 @@
 
 .form-group {
   padding-left: 20px;
+  .col-form-label {
+    width: 165px;
+    padding: 10px 0;
+    float: left;
+    clear: both;
+  }
+  .file {
+    padding: 6px 0;
+  }
+  .radio {
+    padding: 10px 0;
+    margin-right: 20px;
+  }
+}
+
+.customer-id {
+  padding-top: 8px;
+  margin-left: 8px;
 }
