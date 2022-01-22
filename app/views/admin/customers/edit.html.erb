@@ -1,24 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mt-5">
-      <h4 class="bg-secondary col-6 text-light"><%= @customer.full_name %>さんの会員情報編集</h4>
-    </div>
+    <h4 class="title"><%= @customer.full_name %>さんの会員情報編集</h4>
   </div>
   <div class="row">
+    <%= render 'layouts/errors', obj: @customer%>
     <div class='mx-auto col-md-12 mt-3'>
       <%= form_with model: @customer, url: admin_customer_path, method: :patch, local: true do |f| %>
 
-        <!--エラー文-->
-        <% if @customer.errors.any? %>
-          <%= @customer.errors.count %>件のエラーが発生しました
-          <% @customer.errors.full_messages.each do |message| %>
-            <%= message %>
-          <% end %>
-        <% end %>
-
         <div class="form-group row">
           <%= f.label "会員ID", class: "col-sm-2 col-form-label" %>
-          <%= @customer.id%>
+          <span class="customer-id"><%= @customer.id%></span>
         </div>
 
         <!--名前-->
@@ -60,17 +51,21 @@
         </div>
 
         <!--会員ステータス-->
-        <div class="form-check row">
-          <%= f.label :is_deleted, "会員ステータス", class: "col-sm-2 col-form-control-label" %>
-          <%= f.radio_button :is_deleted, :false %>
-          <%= f.label :is_deleted, "有効", { value: :false, style: "display: inline-block;" } %>
-          <%= f.radio_button :is_deleted, :true %>
-          <%= f.label :is_deleted, "退会", { value: :true, style: "display: inline-block;" } %>
+        <div class="form-group row">
+          <%= f.label :is_deleted, "会員ステータス", class: "col-sm-2 col-form-label" %>
+          <div class="radio">
+            <%= f.radio_button :is_deleted, :true %>
+            <%= f.label "有効" %>
+          </div>
+          <div class="radio">
+            <%= f.radio_button :is_deleted, :false %>
+            <%= f.label "退会" %>
+          </div>
         </div>
 
-        <div class="actions row">
-          <%= f.submit "変更を保存", class: "btn btn-success offset-sm-2" %>
-        </div>
+        <div class="actions">
+          <%= f.submit "変更を保存", class: "btn btn-success offset-2" %>
+        </div>s
       <% end %>
     </div>
   </div>

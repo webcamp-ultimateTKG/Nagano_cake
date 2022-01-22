@@ -3,10 +3,11 @@
     <h4 class="title">商品編集</h4>
   </div>
   <div class="row">
+    <%= render 'layouts/errors', obj: @product%>
     <div class='mx-auto col-md-12 mt-3'>
       <%= form_with model: @product, url: admin_product_path, local: true do |f| %>
 
-                <div class="form-group row">
+        <div class="form-group row">
           <%= f.label :image_id, "商品画像", class: "col-form-label offset-sm-3" %>
           <%= f.attachment_field :image, class: "file" %>
         </div>

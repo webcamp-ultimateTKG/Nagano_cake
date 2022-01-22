@@ -14,10 +14,6 @@
 
 .form-group {
   padding-left: 20px;
-  span {
-    padding-top: 6px;
-    margin-left: 8px;
-  }
   .col-form-label {
     width: 165px;
     padding:10px 0;
@@ -29,12 +25,11 @@
   }
   .radio {
     padding: 10px 0;
-  }
-  .radio:last-child {
-    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
-.en {
-  font-size: 16px;
+.customer-id {
+  padding-top: 8px;
+  margin-left: 8px;
 }
