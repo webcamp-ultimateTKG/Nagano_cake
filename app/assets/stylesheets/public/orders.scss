@@ -1,3 +1,17 @@
 // Place all the styles related to the public/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.table-back{
+  background-color: #EDEDED;
+}
+
+
+.my-table td {
+  border: solid 1px black !important;
+  font-weight   : normal;
+}
+.my-table th {
+  border: solid 1px black !important;
+  font-weight   : normal;
+}
+
