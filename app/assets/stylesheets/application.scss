@@ -49,6 +49,14 @@
   padding: 100px;
 }
 
+// 小さめ横長画像サイズ指定
+.small_wide_image_size{
+  width: 77px;
+  height: 55px;
+  background-size: cover;
+  background-position: center;
+}
+
 // セレクトボックスCSS
 .selectdiv {
   position: relative;

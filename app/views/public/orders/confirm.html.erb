@@ -16,7 +16,7 @@
         <tbody>
           <% @cart_products.each do |cart_product| %>
             <tr>
-              <td><%= attachment_image_tag cart_product.product, :image, fallback: "no_image.jpg", class: "order_image_size" %><span class="product_name"><%= cart_product.product.name.truncate(15) %></span></td>
+              <td><%= attachment_image_tag cart_product.product, :image, fallback: "no_image.jpg", class: "small_wide_image_size" %><span class="product_name"><%= cart_product.product.name.truncate(15) %></span></td>
               <td><%= cart_product.product.add_tax_price.to_s(:delimited) %></td>
               <td><%= cart_product.quantity %></td>
               <td><%= cart_product.subtotal.to_s(:delimited) %></td>
