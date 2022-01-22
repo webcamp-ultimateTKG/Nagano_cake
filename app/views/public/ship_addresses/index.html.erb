@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2 ml-5 mt-5">
-      <h4 class="bg-secondary col-4 text-light ">配送先登録/一覧</h4>
+      <h4 class="col-5"><span class="title">配送先登録/一覧</span></h4>
     </div>
   </div>
   <%= render 'layouts/errors', obj: @ship_address %>
@@ -22,17 +22,15 @@
           <div class="field">
             <%= f.label :post_code, "宛名", class: "col-3" %>
             <%= f.text_field :owner , class: "mr-5", placeholder: "田中太郎" %>
+            <%= f.submit "新規登録", class: "btn btn-success btn-sm float-right px-4" %>
           </div>
 
-          <div class="action text-right">
-            <%= f.submit "新規登録", class: "btn btn-success" %>
-          </div>
         <% end %>
       </section>
-      <section class="address-index mt-3">
+      <section class="address-index mt-5">
         <% if @ship_addresses.present? %>
-          <table class="table table-bordered">
-            <thead>
+          <table class="table my-table">
+            <thead class="table-back">
               <tr>
                 <td>郵便番号</td>
                 <td>住所</td>
@@ -43,10 +41,10 @@
             <tbody>
               <% @ship_addresses.each do |ship_address| %>
                 <tr>
-                  <td><%= ship_address.post_code %></td>
+                  <td><%= ship_address.post_code.insert(3, "-") %></td>
                   <td><%= ship_address.address %></td>
                   <td><%= ship_address.owner %></td>
-                  <td>
+                  <td class="text-center">
                     <%= link_to "編集する", edit_ship_address_path(ship_address), class: "btn btn-success" %>
                     <%= link_to "削除する", ship_address_path(ship_address), method: :delete, class: "btn btn-danger" %>
                   </td>
