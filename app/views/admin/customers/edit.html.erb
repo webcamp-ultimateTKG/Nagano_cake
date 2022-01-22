@@ -54,18 +54,18 @@
         <div class="form-group row">
           <%= f.label :is_deleted, "会員ステータス", class: "col-sm-2 col-form-label" %>
           <div class="radio">
-            <%= f.radio_button :is_deleted, :true %>
+            <%= f.radio_button :is_deleted, :false %>
             <%= f.label "有効" %>
           </div>
           <div class="radio">
-            <%= f.radio_button :is_deleted, :false %>
+            <%= f.radio_button :is_deleted, :true %>
             <%= f.label "退会" %>
           </div>
         </div>
 
         <div class="actions">
           <%= f.submit "変更を保存", class: "btn btn-success offset-2" %>
-        </div>s
+        </div>
       <% end %>
     </div>
   </div>
