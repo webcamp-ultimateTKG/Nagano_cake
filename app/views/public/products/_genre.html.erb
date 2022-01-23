@@ -1,14 +1,9 @@
-<div class="offset-1 col-10 border border-dark pb-5">
-	<div class="row">
-		<strong class="red-border px-3 pb-1">ジャンル検索</strong>
+<div class="offset-1 col-10">
+	<div class="row mx-auto list-group">
+		<p class="list-group-item list-group-item-action disabled genre_title"><strong>ジャンル検索</strong></p>
+		<%= link_to "すべての商品", products_path, class: "list-group-item list-group-item-action text-center" %>
+  <% genres.each do |genre| %>
+		<%= link_to genre.name, products_path(genre_id: genre.id), class: "list-group-item list-group-item-action text-center" %>
+	<% end %>
 	</div>
-
-	    <div class="row mx-auto mt-3">
-		<span class="text-center"><%= link_to "すべての商品", products_path %></span>
-		</div>
-	    <% genres.each do |genre| %>
-			<div class="row mx-auto mt-3">
-			<span class="brown-border text-center">・<%= link_to genre.name, products_path(genre_id: genre.id), class: "text-success" %></span>
-			</div>
-	  <% end %>
 </div>
