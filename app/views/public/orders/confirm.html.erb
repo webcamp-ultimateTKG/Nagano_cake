@@ -8,7 +8,7 @@
     <div class="col-md-8 mt-3">
        <table class="table table-bordered order_table">
         <thead>
-          <th>商品名</th>
+          <th colspan="4">商品名</th>
           <th>単価(税込)</th>
           <th>数量</th>
           <th>小計</th>
@@ -16,7 +16,10 @@
         <tbody>
           <% @cart_products.each do |cart_product| %>
             <tr>
-              <td><%= attachment_image_tag cart_product.product, :image, fallback: "no_image.jpg", class: "small_wide_image_size" %><span class="product_name"><%= cart_product.product.name.truncate(15) %></span></td>
+              <td>
+                <%= attachment_image_tag cart_product.product, :image, fallback: "no_image.jpg", class: "small_wide_image_size" %>
+              </td>
+              <td class="product_name" colspan="3"><%= cart_product.product.name %></td>
               <td><%= cart_product.product.add_tax_price.to_s(:delimited) %></td>
               <td><%= cart_product.quantity %></td>
               <td><%= cart_product.subtotal.to_s(:delimited) %></td>

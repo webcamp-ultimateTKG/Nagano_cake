@@ -12,29 +12,29 @@
   </div>
   <div class="row ml-5">
     <div class="col-md-8 mt-4 ml-5">
-      <table class="table my-table">
+      <table class="table table-bordered">
         <tr>
-          <th class="table-back" style="width: 200px;">氏名</th>
+          <th style="width: 200px;">氏名</th>
           <td style="width: 528px;"><%= @customer.full_name %></td>
         </tr>
         <tr>
-          <th class="table-back" style="width: 200px;">カナ</th>
+          <th style="width: 200px;">カナ</th>
           <td style="width: 528px;"><%= @customer.full_name_kana %></td>
         </tr>
         <tr>
-          <th class="table-back" style="width: 200px;">郵便番号</th>
+          <th style="width: 200px;">郵便番号</th>
           <td style="width: 528px;">〒<%= @customer.post_code.to_s.insert(3, "-") %></td>
         </tr>
         <tr>
-          <th class="table-back" style="width: 200px;">住所</th>
+          <th style="width: 200px;">住所</th>
           <td style="width: 528px;"><%= @customer.address.truncate(50) %></td>
         </tr>
         <tr>
-          <th class="table-back" style="width: 200px;">電話番号</th>
+          <th style="width: 200px;">電話番号</th>
           <td style="width: 528px;"><%= @customer.phone_number %></td>
         </tr>
         <tr>
-          <th class="table-back" style="width: 200px;">メールアドレス</th>
+          <th style="width: 200px;">メールアドレス</th>
           <td style="width: 528px;"><%= @customer.email %></td>
         </tr>
       </table>

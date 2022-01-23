@@ -2,24 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-th, td{
-  vertical-align: middle!important;
-}
-
-.table-back{
-  background-color: #EDEDED;
-}
-
-.my-table td {
-  border: solid 1px black !important;
-  font-weight   : normal;
-}
-
-.my-table th {
-  border: solid 1px black !important;
-  font-weight   : normal;
-}
-
 .selectdiv select {
   width: 950px;
 }
@@ -47,8 +29,22 @@ th, td{
   font-size: 17px;
 }
 
+.order_table th, .order_table td{
+  height: 77px;
+  vertical-align: middle !important
+}
+
 .order_table th:first-child{
   width: 37%;
+}
+
+.order_table td:first-child{
+  width: 3%;
+  border-right: none !important;
+}
+
+.order_table td:nth-child(2){
+  border-left: none !important;
 }
 
 .order_table th:nth-child(n+2){
@@ -57,4 +53,16 @@ th, td{
 
 .total_order_table th, .total_order_table td{
   width: 13%;
+  height: 77px;
+  vertical-align: middle !important
+}
+
+.order_index_table th, .order_index_table td{
+  height: 77px;
+  vertical-align: middle !important
+}
+
+.order_show_table th, .order_show_table td{
+  height: 60px;
+  vertical-align: middle !important
 }

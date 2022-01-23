@@ -6,16 +6,22 @@
   padding-left: 20px;
 }
 
-th, td{
-  vertical-align: middle!important;
-}
-
-th{
-  background-color: #f3f3f3;
+.cart_table th, .cart_table td{
+  height: 77px;
+  vertical-align: middle !important
 }
 
 .cart_table th:first-child{
-  width: 42%;
+  width: 37%;
+}
+
+.cart_table td:first-child{
+  width: 3%;
+  border-right: none !important;
+}
+
+.cart_table td:nth-child(2){
+  border-left: none !important;
 }
 
 .cart_table th:nth-child(n+2){
@@ -28,10 +34,10 @@ th{
 }
 
 .btn-change{
-  width: 45px;
-  padding: 10px 5px!important;
-  margin-left: 10px;
-  margin-bottom: 3px;
+  height: 55px;
+  padding: 9px;
+  margin-top: 3px;
+  margin-left: 9px;
 }
 
 .cart_total_table{
@@ -41,4 +47,6 @@ th{
 
 .cart_total_table th, .cart_total_table td{
   width: 50%;
+  height: 77px;
+  vertical-align: middle !important
 }
