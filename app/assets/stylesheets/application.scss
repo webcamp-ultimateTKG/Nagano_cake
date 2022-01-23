@@ -18,6 +18,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap&family=Kosugi+Maru&display=swap');
+@main-color
 
 *{
   margin: 0;
@@ -30,17 +31,19 @@ main {
 }
 
 /*--------- error --------*/
+
 #error_explanation {
   color: red;
 }
 
 /*--------- header --------*/
+
 header {
   li {
     font-family: 'Hina Mincho', serif;
   }
   .search {
-    border: 1px solid #4f021e;
+    border: 2px solid #ced4da;
   }
   .logo {
     font-family: 'Hina Mincho', serif;
@@ -70,7 +73,13 @@ footer {
   margin: 0;
 }
 
+/*-------- sidebar --------*/
+.sidebar {
+  list-style: none;
+}
+
 /*--------  --------*/
+
 div {
   &.field, &.actions {
     margin-bottom: 10px;
@@ -197,7 +206,7 @@ display: none;
     width: 15px;
     height: 15px;
     //中心点の色指定
-    background: #ff9500;
+    background: #a13059;
     position: absolute;
     left: 7px;
     bottom: 1px;
@@ -228,7 +237,7 @@ input[type="radio"] {
     left: 0.9px;
     top: 7.9px;
     //輪の色指定
-    border: 5px solid #000;
+    border: 4px solid #4f021e;
     opacity: 0;
     border-radius: 50%;
 }
