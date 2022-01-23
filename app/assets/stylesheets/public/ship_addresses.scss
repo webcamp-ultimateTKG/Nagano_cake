@@ -1,3 +1,24 @@
 // Place all the styles related to the public/ship_addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ship_address_table th, .ship_address_table td{
+  height: 77px;
+  vertical-align: middle !important
+}
+
+.ship_address_table th:first-child{
+  width: 13%;
+}
+
+.ship_address_table th:nth-child(2){
+  width: 30%;
+}
+
+.ship_address_table th:nth-child(3){
+  width: 15%;
+}
+
+.ship_address_table th:nth-child(4){
+  width: 35%;
+}

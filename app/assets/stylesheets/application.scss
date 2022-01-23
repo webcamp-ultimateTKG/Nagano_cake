@@ -35,6 +35,10 @@ div {
   }
 }
 
+th{
+  background-color: #f3f3f3;
+}
+
 .field_with_errors {
   display: contents;
 }
@@ -66,6 +70,7 @@ div {
   height: 55px;
   background-size: cover;
   background-position: center;
+  float: right;
 }
 
 .genre_title{
