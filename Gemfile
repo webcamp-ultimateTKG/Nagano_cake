@@ -74,6 +74,4 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari', '~> 1.2.1'
 gem 'enum_help'
 
-#エラーメッセージ日本語化
-gem 'rails-i18n'
 gem 'dotenv-rails'

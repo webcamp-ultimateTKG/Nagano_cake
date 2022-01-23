@@ -1,0 +1,8 @@
+<%= form_with model: order, url: admin_order_path(order), remote: true do |f| %>
+  <div class="d-flex flex-row">
+    <div class="selectdiv">
+      <%= f.select :status, Order.statuses_i18n.invert %>
+    </div>
+  <%= f.submit "更新", class: "btn btn-success offset-sm-1" %>
+  </div>
+<% end %>

@@ -28,14 +28,7 @@
           <th class="align-middle">注文ステータス</th>
           <td>
             <div class="row">
-              <%= form_with model: @order, url: admin_order_path(@order), local: true do |f| %>
-                <div class="d-flex flex-row">
-                  <div class="selectdiv">
-                    <%= f.select :status, Order.statuses_i18n.invert %>
-                  </div>
-                  <%= f.submit "更新", class: "btn btn-success offset-sm-1" %>
-                </div>
-              <% end %>
+              <%= render 'status-form', order: @order %>
             </div>
           </td>
         </tr>
@@ -52,19 +45,8 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <% @order_products.each do |order_product| %>
-              <tr>
-                <td class="align-middle"><%= order_product.product.name %></td>
-                <td class="text-right align-middle tax"><%= order_product.tax_in_price.to_i.to_s(:delimited)%></td>
-                <td class="text-center align-middle"><%= order_product.quantity %></td>
-                <td class="text-right align-middle subtotal"><%= order_product.subtotal.to_s(:delimited) %></td>
-                <%= form_with model: order_product, url: admin_order_product_path(order_product), local: true do |f| %>
-                  <td class="text-center align-middle selectdiv"><%= f.select :making_status, OrderProduct.making_statuses_i18n.invert %></td>
-                  <td class="text-center align-middle"><%= f.submit "更新", class: "btn btn-success btn-sm" %></td>
-                <% end %>
-              </tr>
-            <% end %>
+          <tbody class="making-status-list">
+            <%= render 'admin/order_products/making-status-form', order_products: @order_products %>
           </tbody>
         </table>
       </div>

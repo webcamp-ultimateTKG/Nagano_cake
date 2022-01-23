@@ -24,6 +24,15 @@
   box-sizing: border-box;
 }
 
+/*---------- error --------*/
+#error_explanation {
+  color: red;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
 th{
   background-color: #f3f3f3;
 }
