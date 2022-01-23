@@ -43,8 +43,22 @@
   font-size: 17px;
 }
 
+.order_table th, .order_table td{
+  height: 77px;
+  vertical-align: middle !important
+}
+
 .order_table th:first-child{
   width: 37%;
+}
+
+.order_table td:first-child{
+  width: 3%;
+  border-right: none !important;
+}
+
+.order_table td:nth-child(2){
+  border-left: none !important;
 }
 
 .order_table th:nth-child(n+2){
@@ -53,4 +67,6 @@
 
 .total_order_table th, .total_order_table td{
   width: 13%;
+  height: 77px;
+  vertical-align: middle !important
 }
