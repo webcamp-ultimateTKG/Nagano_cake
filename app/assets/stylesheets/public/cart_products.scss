@@ -6,12 +6,9 @@
   padding-left: 20px;
 }
 
-th, td{
-  vertical-align: middle!important;
-}
-
-th{
-  background-color: #f3f3f3;
+.cart_table th, .cart_table td{
+  height: 77px;
+  vertical-align: middle !important
 }
 
 .cart_table th:first-child{
@@ -27,13 +24,6 @@ th{
   padding: 0 5px;
 }
 
-.btn-change{
-  width: 45px;
-  padding: 10px 5px!important;
-  margin-left: 10px;
-  margin-bottom: 3px;
-}
-
 .cart_total_table{
   width: 300px!important;
   margin: 0 0 0 auto;
@@ -41,4 +31,6 @@ th{
 
 .cart_total_table th, .cart_total_table td{
   width: 50%;
+  height: 77px;
+  vertical-align: middle !important
 }
