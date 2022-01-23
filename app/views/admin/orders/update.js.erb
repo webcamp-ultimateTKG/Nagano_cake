@@ -1,2 +1,1 @@
-$("#order_status").html("<%= j(render 'admin/orders/status-form', order: @order) %>");
-$("#order_product_making_status").val(<%= @order_products.making_status %>);
+$(".making-status-list").html("<%= j(render 'admin/order_products/making-status-form', order_products: @order_products) %>");
