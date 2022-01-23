@@ -3,19 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //-----------top------------//
-.sidebar {
-  height: 300px;
-  margin-top: 40px;
-  border: 1px solid #000;
-  .sidebar-title {
-    text-align: center;
-    border-bottom: 1px solid #000;
-  }
-  ul {
-    list-style: none;
-  }
-}
-
 .main-visual {
   background-image: url(cake.jpg);
 

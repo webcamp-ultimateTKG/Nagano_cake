@@ -32,3 +32,12 @@
 #card_title{
   font-size: 18px;
 }
+
+/*-------- sidebar -------*/
+.list-group {
+  width: 250px;
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-face-color: #999;
+  scrollbar-track-color: #eee;
+}
