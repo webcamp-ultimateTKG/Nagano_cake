@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-fluid">
  <div class="row">
   <div class="col-3 mt-4">
     <%= render 'public/products/genre', genres: @genres %>
   </div>
-  <div class="col-9 d-flex flex-wrap mt-4 h-100">
+  <div class="col-9 d-flex flex-wrap mt-4">
   	<% @products.each do |product| %>
       <div class="card ml-5 mb-5" style="width: 12rem;">
         <%= link_to product_path(product) do %>
@@ -20,11 +20,10 @@
        </div>
       </div>
     <% end %>
-    <%= paginate @products %>
   </div>
 	<div class="row">
 	 <div class="col-md-4 offset-md-4 py-2 mt-5">
-
+      <%= paginate @products %>
 	 </div>
 	</div>
  </div>
