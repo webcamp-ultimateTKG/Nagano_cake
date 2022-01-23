@@ -14,10 +14,10 @@
             <td><%= @order.created_at.to_s(:date_jp) %></td>
           </tr>
           <tr>
-            <th class="table-back align-middle">配送先</th>
-            <td style="width: 500px;">
+            <th class="table-back">配送先</th>
+            <td style="width: 500px; line-height:1.3em">
               〒<%= @order.post_code.to_s.insert(3, "-") %></br>
-              <%= @order.address %></br>
+              <%= @order.address.truncate(50) %></br>
               <%= @order.owner %>
             </td>
           </tr>
@@ -65,7 +65,7 @@
         <tbody>
           <% @order_products.each do |order_product| %>
             <tr>
-              <td style="width: 400px"><%= order_product.product.name %></td>
+              <td style="width: 400px"><%= order_product.product.name.truncate(50) %></td>
               <td><%= order_product.tax_in_price.to_i.to_s(:delimited) %></td>
               <td><%= order_product.quantity %></td>
               <td><%= order_product.subtotal.to_i.to_s(:delimited) %></td>
