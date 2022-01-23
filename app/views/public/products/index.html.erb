@@ -12,7 +12,11 @@
         <div class="card-body">
           <h6 class="card-title" id="card_title"><strong><%= product.name %></strong></h6>
           <p class="card-text"><%= product.genre.name %></p>
-          <p><%= product.add_tax_price.to_s(:delimited) %>円</p>
+          <% if product.is_active ==  false %>
+            <p><%= product.add_tax_price.to_s(:delimited) %>円<span class="text-danger">　販売停止</span></p>
+          <% else %>
+            <p><%= product.add_tax_price.to_s(:delimited) %>円</p>
+          <% end %>
        </div>
       </div>
     <% end %>
