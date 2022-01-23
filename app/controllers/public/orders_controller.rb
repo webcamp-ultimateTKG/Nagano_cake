@@ -41,6 +41,7 @@ class Public::OrdersController < ApplicationController
     @cart_products = current_customer.cart_products
     # 合計金額
     @total = @cart_products.inject(0) { |sum, product| sum + product.subtotal }
+
     # 請求額
     @charge = @total + @order.shipping_fee
 
