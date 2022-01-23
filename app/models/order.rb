@@ -14,6 +14,14 @@ class Order < ApplicationRecord
     self.order_products.all.sum(:quantity)
   end
 
+  def owner_address
+    '〒' + self.post_code.to_s.insert(3, "-") + ' ' + self.address
+  end
+
+  def subtotal
+    product.add_tax_price * quantity
+  end
+
   enum payment_method: {
     credit_card: 0,
     transfer: 1
