@@ -9,9 +9,10 @@ class Public::ShipAddressesController < ApplicationController
   def create
     @ship_address = current_customer.ship_addresses.new(ship_address_params)
     if @ship_address.save
-      redirect_to ship_addresses_path
+      @ship_addresses = current_customer.ship_addresses.all
     else
-      render :index
+      @ship_addresses = current_customer.ship_addresses.all
+      render :error
     end
   end
 
@@ -31,7 +32,7 @@ class Public::ShipAddressesController < ApplicationController
   def destroy
     @ship_address = ShipAddress.find(params[:id])
     @ship_address.destroy
-    redirect_to ship_addresses_path
+    @ship_addresses = current_customer.ship_addresses.all
   end
 
   private
