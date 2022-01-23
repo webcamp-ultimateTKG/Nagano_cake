@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap&family=Kosugi+Maru&display=swap');
 
 *{
   margin: 0;
@@ -24,11 +25,52 @@
   box-sizing: border-box;
 }
 
-/*---------- error --------*/
+main {
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+/*--------- error --------*/
 #error_explanation {
   color: red;
 }
 
+/*--------- header --------*/
+header {
+  li {
+    font-family: 'Hina Mincho', serif;
+  }
+  .search {
+    border: 1px solid #4f021e;
+  }
+  .logo {
+    font-family: 'Hina Mincho', serif;
+    font-weight: bold;
+    font-size: 50px;
+  }
+  .main-header {
+    background-color: #4f021e;
+  }
+  .btn:hover {
+    color: #4f021e;
+  }
+}
+
+/*-------- footer  --------*/
+
+footer {
+  background-color: #4f021e;
+  font-family: 'Hina Mincho', serif;
+}
+
+.footer-content {
+  color: #fff;
+  height: 80px;
+  font-size: 20px;
+  line-height: 80px;
+  margin: 0;
+}
+
+/*--------  --------*/
 div {
   &.field, &.actions {
     margin-bottom: 10px;
