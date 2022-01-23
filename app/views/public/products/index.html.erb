@@ -1,25 +1,26 @@
-<div class="container my-5">
+<div class="container-fluid">
  <div class="row">
-    <div class="col-3">
-      <%= render 'public/products/genre', genres: @genres %>
-    </div>
-    <div class="col-9 d-flex flex-row">
-	    	<% @products.each do |product| %>
-            <div class="card ml-5" style="width: 12rem;">
-		        <%= link_to product_path(product) do %>
-		          <%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", class: 'card-img-top bd-placeholder-img' %>
-		        <% end %>
-  		        <div class="card-body">
-                <h6 class="card-title" id="card_title"><strong><%= product.name %></strong></h6>
-  		          <p class="card-text"><%= product.genre.name %></p>
-  		          <p><%= product.add_tax_price.to_s(:delimited) %>円</p>
-  		       </div>
-	          </div>
-        <% end %>
-    </div>
+  <div class="col-3 mt-4">
+    <%= render 'public/products/genre', genres: @genres %>
+  </div>
+  <div class="col-9 d-flex flex-wrap mt-4">
+  	<% @products.each do |product| %>
+      <div class="card ml-5 mb-5" style="width: 12rem;">
+        <%= link_to product_path(product) do %>
+        <%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", class: 'card-img-top bd-placeholder-img' %>
+    <% end %>
+        <div class="card-body">
+          <h6 class="card-title" id="card_title"><strong><%= product.name %></strong></h6>
+          <p class="card-text"><%= product.genre.name %></p>
+          <p><%= product.add_tax_price.to_s(:delimited) %>円</p>
+       </div>
+      </div>
+    <% end %>
+  </div>
 	<div class="row">
 	 <div class="col-md-4 offset-md-4 py-2 mt-5">
 	 	<%= paginate @products %>
 	 </div>
 	</div>
  </div>
+</div>
