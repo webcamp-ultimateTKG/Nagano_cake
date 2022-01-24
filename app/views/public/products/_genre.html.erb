@@ -1,9 +1,11 @@
-<div class="offset-sm-1 col-10">
-	<div class="row mx-auto list-group">
-		<p class="list-group-item list-group-item-action disabled genre_title"><strong>ジャンル検索</strong></p>
-		<%= link_to "すべての商品", products_path, class: "list-group-item list-group-item-action text-center" %>
-	  <% genres.each do |genre| %>
-			<%= link_to genre.name, products_path(genre_id: genre.id), class: "list-group-item list-group-item-action text-center" %>
-		<% end %>
+<div class="offset-1">
+	<div class="row mx-auto list-group" style="height: 800px; overflow-y: auto;">
+		<ul class="sidebar">
+			<p class="list-group-item list-group-item-action disabled genre_title"><strong>ジャンル検索</strong></p>
+			<%= link_to "すべての商品", products_path, class: "list-group-item list-group-item-action text-center" %>
+		  <% genres.each do |genre| %>
+				<li><%= link_to genre.name, products_path(genre_id: genre.id), class: "list-group-item list-group-item-action text-center" %></li>
+			<% end %>
+		</ul>
 	</div>
 </div>
