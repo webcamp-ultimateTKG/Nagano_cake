@@ -29,6 +29,27 @@ main {
   font-family: 'Kosugi Maru', sans-serif;
 }
 
+.btn-action {
+  color: #fff;
+  background: #468966;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
+.btn-next {
+  color: #fff;
+  background: #3E879E;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
+.btn-attention {
+  color: #fff;
+  background: #A61717;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
 /*--------- error --------*/
 
 #error_explanation {
