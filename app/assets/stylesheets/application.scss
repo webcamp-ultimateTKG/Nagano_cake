@@ -133,6 +133,19 @@ th{
   padding: 0 20px;
 }
 
+// link
+.link_border{
+  border-bottom: 1px solid #357f96;
+}
+
+.link_text{
+  color: #357f96;
+}
+
+.link_text:hover{
+  color: #47a6c4;
+}
+
 .this-link{
   font-size: 17px;
   margin-left: 17px;
@@ -158,11 +171,19 @@ th{
   float: right;
 }
 
+// genre-sidebar
 .genre_title{
   font-size: 22px;
   margin-bottom: 0;
   text-align: center;
+  color: #360214!important;
 }
+
+// 文字色
+.color_text{
+  color: #47041d!important;
+}
+
 
 // セレクトボックスCSS
 .selectdiv {
