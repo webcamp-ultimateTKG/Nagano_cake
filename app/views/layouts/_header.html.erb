@@ -33,11 +33,31 @@
             <% end %>
           </li>
         <% elsif admin_signed_in? %>
-          <li><%= link_to "商品一覧", admin_products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "会員一覧", admin_customers_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-light btn btn-outline-light btn-sm" %></li>
+          <li>
+            <%= link_to admin_products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fa fa-shopping-bag"><span class="font">商品一覧</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_customers_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fa fa-users"><span class="font">会員一覧</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_orders_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fa fa-list"><span class="font">注文履歴一覧</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_genres_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fas fa-clipboard-list"><span class="font">ジャンル一覧</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light btn btn-outline-light btn-sm" do %>
+              <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
+            <% end %>
+          </li>
         <% else %>
           <li>
             <%= link_to about_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
