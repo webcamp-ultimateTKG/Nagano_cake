@@ -111,7 +111,9 @@ main {
     font-weight: 500;
   }
   textarea {
-    font-size: 20px;
+    @extend .is-invalid;
+    height: 50px;
+    font-size: 15px;
     font-weight: 500;
   }
   input {
@@ -366,7 +368,7 @@ input[type="radio"]:checked ~ .bullet {
   width: 10px;
   height: 2px;
   //しずくの色指定
-  background-color: #ff9500;
+  background-color: #a13059;
   opacity:0;
 }
 
