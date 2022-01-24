@@ -15,8 +15,8 @@
           <td><%= ship_address.address.truncate(25) %></td>
           <td><%= ship_address.owner %></td>
           <td class="text-center" id="aaa-#{ship_address.id}">
-            <%= link_to "編集する", edit_ship_address_path(ship_address), class: "btn btn-success flex-row mr-3" %>
-            <%= link_to "削除する", ship_address_path(ship_address), method: :delete, remote: true, class: "btn btn-danger" %>
+            <%= link_to "編集する", edit_ship_address_path(ship_address), class: "btn btn-action flex-row mr-3" %>
+            <%= link_to "削除する", ship_address_path(ship_address), method: :delete, remote: true, class: "btn btn-attention" %>
           </td>
         </tr>
       <% end %>
