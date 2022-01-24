@@ -23,6 +23,7 @@ class Admin::OrdersController < ApplicationController
         order_product.save
       end
     end
+    redirect_to request.referer
   end
 
   def search
