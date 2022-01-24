@@ -7,7 +7,7 @@
       <table class="table table-borderless order-show">
         <tr>
           <td class="font-weight-bold">購入者</td>
-          <td><%= @order.customer.full_name %></td>
+          <td><%= link_to @order.customer.full_name, admin_customer_path(@order.customer), class: "link_text link_border" %></td>
         </tr>
         <tr>
           <td class="font-weight-bold">注文日</td>

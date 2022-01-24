@@ -2,9 +2,9 @@
 	<div class="row mx-auto list-group" style="height: 800px; overflow-y: auto;">
 		<ul class="sidebar">
 			<p class="list-group-item list-group-item-action disabled genre_title"><strong>ジャンル検索</strong></p>
-			<%= link_to "すべての商品", products_path, class: "list-group-item list-group-item-action text-center" %>
+			<%= link_to "すべての商品", products_path, class: "list-group-item list-group-item-action text-center color_text" %>
 		  <% genres.each do |genre| %>
-				<li><%= link_to genre.name, products_path(genre_id: genre.id), class: "list-group-item list-group-item-action text-center" %></li>
+				<li><%= link_to genre.name, products_path(genre_id: genre.id), class: "list-group-item list-group-item-action text-center color_text" %></li>
 			<% end %>
 		</ul>
 	</div>

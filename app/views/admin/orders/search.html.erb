@@ -15,7 +15,7 @@
         <tbody>
           <% @orders.each do |order| %>
             <tr>
-              <td class="borderd"><%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order) %></td>
+              <td class="borderd"><%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order), class: "link_text link_border" %></td>
               <td><%= order.total_quantity %></td>
               <td><%= order.status_i18n %></td>
             </tr>

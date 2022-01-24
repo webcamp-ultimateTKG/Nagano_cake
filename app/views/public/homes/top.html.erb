@@ -29,15 +29,15 @@
                       <p class="text-right card-text"><%= product.add_tax_price.to_s(:delimited) %>円</p>
                   </div>
                   <div class="card-footer top_card_style_footer">
-                    <p class="badge badge-primary top_badge"><%= product.genre.name %></p>
+                    <p class="badge badge-action top_badge"><%= product.genre.name %></p>
                   </div>
                 <% else %>
                   <div class="card-body top_card_style_body">
                     <h6 class="card-title border-bottom" id="card_title"><strong><%= product.name %></strong></h6>
                   </div>
                   <div class="card-footer top_card_style_footer">
-                    <p class="badge badge-danger top_badge">販売停止中</p>
-                    <p class="badge badge-primary top_badge"><%= product.genre.name %></p>
+                    <p class="badge badge-attention top_badge">販売停止中</p>
+                    <p class="badge badge-action top_badge"><%= product.genre.name %></p>
                   </div>
                 <% end %>
                  </div>
@@ -45,7 +45,7 @@
 	          </div>
          </div>
       </section>
-        <p style="text-align: right;" class="mt-3"><%= link_to "すべての商品を見る＞", products_path %></p>
+        <p style="text-align: right;" class="mt-3"><%= link_to "すべての商品を見る＞", products_path, class: "link_text link_border" %></p>
     </div>
   </div>
 </div>
