@@ -79,8 +79,27 @@ main {
 
 /*--------- error --------*/
 
-#error_explanation {
-  color: red;
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+    height: 50px;
+  }
+  label {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.form-group {
+  .field_with_errors {
+    label {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    input {
+      height: 50px;
+    }
+  }
 }
 
 /*--------- header --------*/
