@@ -1,10 +1,13 @@
 <div class="container">
   <div class="row">
-    <h4 class="title">管理者用ログイン</h4>
+    <div class="mt-5">
+      <h4 class="title">管理者用ログイン</h4>
+    </div>
   </div>
   <div class="row">
     <div class='mx-auto col-md-9 mt-5'>
       <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
+        <p class="alert text-danger"><%= alert %></p>
         <div class="row form-group mb-3 flex">
           <%= f.label :email, "メールアドレス", class: "col-3 col-form-label" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@examle.com", class: "form-control col-md-8" %>
