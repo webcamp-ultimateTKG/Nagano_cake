@@ -42,42 +42,75 @@ main {
 }
 
 .btn-action {
-  color: #fff;
+  color: #fafafa;
   background: #468966;
   border: 3px solid #eee;
   border-radius: 25px;
 }
 
+.btn-action:hover {
+  color: #fafafa;
+  background: #316148;
+}
+
 .btn-next {
-  color: #fff;
+  color: #fafafa;
   background: #3E879E;
   border: 3px solid #eee;
   border-radius: 25px;
 }
 
+.btn-next:hover {
+  color: #fafafa;
+  background: #2a6173;
+}
+
 .btn-attention {
-  color: #fff;
+  color: #fafafa;
   background: #A61717;
   border: 3px solid #eee;
   border-radius: 25px;
 }
 
-//badge
 
- .badge-action{
-   background-color: #468966;
-   color: #fff;
- }
+.btn-attention:hover {
+  color: #fafafa;
+  background: #7d1111;
+}
 
- .badge-attention{
-   background-color: #A61717;
-   color: #fff;
- }
+.badge-action{
+ background-color: #468966;
+ color: #fff;
+}
+
+.badge-attention{
+ background-color: #A61717;
+ color: #fff;
+}
 
 /*--------- error --------*/
 
-#error_explanation {
-  color: red;
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+    height: 50px;
+  }
+  label {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.form-group {
+  .field_with_errors {
+    label {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    input {
+      height: 50px;
+    }
+  }
 }
 
 /*--------- header --------*/
@@ -96,9 +129,6 @@ header {
   }
   .main-header {
     background-color: #4f021e;
-  }
-  .btn:hover {
-    color: #4f021e;
   }
 }
 
