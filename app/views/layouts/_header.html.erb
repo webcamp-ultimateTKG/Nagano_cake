@@ -1,21 +1,37 @@
 <header class=>
   <div class="main-header px-3 py-2 text-white">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start col-12 mt-3">
         <a href="/" class="logo d-flex align-items-center my-2 my-lg-0 mr-lg-auto text-white text-decoration-none">
           Nagano Cake
         </a>
         <% if customer_signed_in? %>
-          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0">
+          <ul class="nav col-lg-auto my-2  my-md-0">
             <li class="welcome">ようこそ、<%= current_customer.last_name %>さん！</li>
           </ul>
         <% end %>
-        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0">
+        <ul class="nav col-6 col-sm-3 col-lg-auto my-2 justify-content-center my-md-0">
           <% if customer_signed_in? %>
-          <li><%= link_to "マイページ", my_page_customers_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "商品一覧", products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "カート", cart_products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-light btn btn-outline-light btn-sm" %></li>
+          <li>
+            <%= link_to my_page_customers_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fa fa-user"><span class="font">マイページ</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fa fa-shopping-bag"><span class="font">商品一覧</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to cart_products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fa fa-shopping-cart"><span class="font">カート</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link text-light btn btn-outline-light btn-sm" do %>
+              <i class="fas fa-sign-out-alt"><span ="font">ログアウト</span></i>
+            <% end %>
+          </li>
         <% elsif admin_signed_in? %>
           <li><%= link_to "商品一覧", admin_products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
           <li><%= link_to "会員一覧", admin_customers_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
@@ -23,29 +39,42 @@
           <li><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-light btn btn-outline-light btn-sm" %></li>
         <% else %>
-          <li><%= link_to "About", about_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "商品一覧", products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "新規登録", new_customer_registration_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" %></li>
-          <li><%= link_to "ログイン", new_customer_session_path, class: "nav-link text-light btn btn-outline-light btn-sm" %></li>
+          <li>
+            <%= link_to about_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fa fa-info-circle"><span class="font">About</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to products_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fa fa-shopping-bag"><span class="font">商品一覧</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_registration_path, class: "nav-link text-light btn btn-outline-light btn-sm mr-2" do %>
+              <i class="fas fa-user-plus"><span class="font">新規登録</span></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to  new_customer_session_path, class: "nav-link text-light btn btn-outline-light btn-sm" do %>
+              <i class="fas fa-sign-in-alt"><span class="font">ログイン</span></i>
+            <% end %>
+          </li>
         <% end %>
         </ul>
-      </div>
-    </div>
-  </div>
-  <div class="sub-header px-3 py-2 border-bottom mb-3">
-    <div class="container d-flex flex-wrap justify-content-center">
-      <div class="col-12 col-lg-6 mb-2 mb-lg-0 me-lg-auto">
+        <div class="col-12 col-sm-9"></div>
+        <div class="col-12 col-sm-3">
         <% if admin_signed_in? %>
           <%= form_with url: search_admin_products_path, method: :get, local: true do |f| %>
-          <%= f.text_field :keyword , placeholder: "Search", class: "form-control search", autocomplete: 'off' %>
+          <%= f.text_field :keyword , placeholder: "商品検索", class: " search form-control", autocomplete: 'off' %>
           <% f.submit %>
           <% end %>
         <% else %>
           <%= form_with url: search_products_path, method: :get, local: true do |f| %>
-          <%= f.text_field :keyword , placeholder: "Search", class: "form-control search", autocomplete: 'off' %>
+          <%= f.text_field :keyword , placeholder: "商品検索", class: "search form-control", autocomplete: 'off' %>
           <% f.submit %>
           <% end %>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
