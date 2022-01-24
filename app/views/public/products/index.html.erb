@@ -15,15 +15,15 @@
               <p class="text-right card-text"><%= product.add_tax_price.to_s(:delimited) %>円</p>
           </div>
           <div class="card-footer card_style_footer">
-            <p class="badge badge-primary"><%= product.genre.name %></p>
+            <p class="badge badge-action"><%= product.genre.name %></p>
           </div>
         <% else %>
           <div class="card-body">
             <h6 class="card-title border-bottom" id="card_title"><strong><%= product.name %></strong></h6>
           </div>
           <div class="card-footer card_style_footer">
-            <p class="badge badge-danger">販売停止中</p>
-            <p class="badge badge-primary"><%= product.genre.name %></p>
+            <p class="badge badge-attention">販売停止中</p>
+            <p class="badge badge-action"><%= product.genre.name %></p>
           </div>
         <% end %>
          </div>
