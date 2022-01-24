@@ -163,6 +163,15 @@ th{
   margin-left: 17px;
 }
 
+// kaminari
+.page-item.active .page-link{
+  background-color: #357f96;
+}
+
+.page-link{
+  color: #357f96;
+}
+
 .address_wrap{
   width: 900px;
   overflow: hidden;
