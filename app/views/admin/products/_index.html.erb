@@ -14,7 +14,7 @@
           <% @products.each do |product| %>
             <tr>
               <td><%= product.id %></td>
-              <td style="width: 300px;"><%= link_to product.name, admin_product_path(product)%></td>
+              <td style="width: 300px;"><%= link_to product.name, admin_product_path(product), class: "link_text link_border"%></td>
               <td><%= product.price.to_s(:delimited) %></td>
               <td style="width: 300px;"><%= product.genre.name %></td>
               <% if product.is_active == true %>
