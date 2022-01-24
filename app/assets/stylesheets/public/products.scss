@@ -23,7 +23,7 @@
   margin-left: 5px;
 }
 
-.card-img-top{
+.product_card_img{
   height: 160px;
   background-size: cover!important;
   background-position: center!important;
@@ -40,4 +40,10 @@
 .genre_badge{
   display: flex!important;
   align-items: flex-end!important;
+}
+
+.card_style_footer{
+  background-color: #fff!important;
+  border-top: none !important;
+  margin: 0 0 0 auto!important;
 }

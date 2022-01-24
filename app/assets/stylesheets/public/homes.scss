@@ -5,13 +5,13 @@
 .main-visual {
   background-image: url(cake.jpg);
   background-position: center;
-  height: 300px;
+  height: 400px;
   width: 100%;
   text-align: center;
   .mv-content {
     background-color:rgba(255,255,255,0.6);
-    height: 300px;
-    padding-top: 80px;
+    height: 400px;
+    padding-top: 120px;
   }
   .mv-title {
     font-family: 'Hina Mincho', serif;
@@ -25,6 +25,30 @@
   }
 }
 
+  .top_card_img{
+    height: 140px;
+    background-size: cover!important;
+    background-position: center!important;
+  }
+
+  .top_card_style_body{
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+    height: 100px!important;
+    flex: 0 0 auto!important;
+  }
+
+  .top_card_style_footer{
+    background-color: #fff!important;
+    border-top: none !important;
+    margin: 0 0 0 auto!important;
+    height: 40px;
+    padding: 5px 20px!important;
+  }
+
+  .top_badge{
+    margin-bottom: 10px;
+  }
 
 //-----------about------------//
 .about-title {
