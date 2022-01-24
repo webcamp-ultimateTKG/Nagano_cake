@@ -90,6 +90,10 @@ main {
 
 /*--------- error --------*/
 
+#error_explanation {
+  color: red;
+}
+
 .field_with_errors {
   input {
     @extend .is-invalid;
@@ -101,17 +105,20 @@ main {
   }
 }
 
-.form-group {
-  .field_with_errors {
-    label {
-      font-size: 20px;
-      font-weight: 500;
-    }
-    input {
-      height: 50px;
-    }
+.field_with_errors {
+  label {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  textarea {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  input {
+    height: 50px;
   }
 }
+
 
 /*--------- header --------*/
 
