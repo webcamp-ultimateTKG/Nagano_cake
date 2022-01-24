@@ -79,35 +79,37 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="continput">
-        <ul>
-          <li>
-            <%= f.radio_button :address_select, 1 %>
-            <%= f.label "登録済住所から選択" %>
-              <div class="bullet">
-                <div class="line zero"></div>
-                <div class="line one"></div>
-                <div class="line two"></div>
-                <div class="line three"></div>
-                <div class="line four"></div>
-                <div class="line five"></div>
-                <div class="line six"></div>
-                <div class="line seven"></div>
-              </div>
-          </li>
-        </ul>
+  <% if current_customer.ship_addresses.exists? %>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="continput">
+          <ul>
+            <li>
+              <%= f.radio_button :address_select, 1 %>
+              <%= f.label "登録済住所から選択" %>
+                <div class="bullet">
+                  <div class="line zero"></div>
+                  <div class="line one"></div>
+                  <div class="line two"></div>
+                  <div class="line three"></div>
+                  <div class="line four"></div>
+                  <div class="line five"></div>
+                  <div class="line six"></div>
+                  <div class="line seven"></div>
+                </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 ml-3">
-      <div class="selectdiv ml-4">
-        <%= f.select :address_id, options_from_collection_for_select(current_customer.ship_addresses.all, :id, :full_address) %>
+    <div class="row">
+      <div class="col-md-12 ml-3">
+        <div class="selectdiv ml-4">
+          <%= f.select :address_id, options_from_collection_for_select(current_customer.ship_addresses.all, :id, :full_address) %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <div class="row">
     <div class="col-md-4">
       <div class="continput">
