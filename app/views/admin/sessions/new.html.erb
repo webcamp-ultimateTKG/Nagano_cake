@@ -5,14 +5,14 @@
   <div class="row">
     <div class='mx-auto col-md-9 mt-5'>
       <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
-        <div class="field mb-3">
-          <%= f.label :email, "メールアドレス", class: "col-3" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@examle.com", size: "60x20" %>
+        <div class="row form-group mb-3 flex">
+          <%= f.label :email, "メールアドレス", class: "col-3 col-form-label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@examle.com", class: "form-control col-md-8" %>
         </div>
 
-        <div class="field">
-          <%= f.label :password, "パスワード", class: "col-3" %>
-          <%= f.password_field :password, autocomplete: "current-password", size: "60x20" %>
+        <div class="row form-group flex">
+          <%= f.label :password, "パスワード", class: "col-3 col-form-label" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control col-md-8" %>
         </div>
     </div>
   </div>
