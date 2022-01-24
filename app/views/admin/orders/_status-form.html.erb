@@ -1,4 +1,4 @@
-<%= form_with model: order, url: admin_order_path(order), remote: true do |f| %>
+<%= form_with model: order, url: admin_order_path(order), local: true do |f| %>
   <div class="d-flex flex-row">
     <div class="selectdiv">
       <%= f.select :status, Order.statuses_i18n.invert %>

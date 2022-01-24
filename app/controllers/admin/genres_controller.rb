@@ -4,10 +4,10 @@ class Admin::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to admin_genres_path
+      @genres = Genre.all
     else
       @genres = Genre.all
-      render :index
+      render :error
     end
   end
 

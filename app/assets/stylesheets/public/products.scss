@@ -37,6 +37,11 @@
   margin: 0 auto;
 }
 
+.genre_badge{
+  display: flex!important;
+  align-items: flex-end!important;
+}
+
 .card_style_footer{
   background-color: #fff!important;
   border-top: none !important;

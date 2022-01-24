@@ -6,26 +6,26 @@
     <div class="col-lg-8 mt-3">
       <table class="table table-borderless order-show">
         <tr>
-          <th>購入者</th>
+          <td class="font-weight-bold">購入者</td>
           <td><%= @order.customer.full_name %></td>
         </tr>
         <tr>
-          <th>注文日</th>
+          <td class="font-weight-bold">注文日</td>
           <td><%= @order.created_at.to_s(:date_jp) %></td>
         </tr>
         <tr>
-          <th>配送先</th>
+          <td class="font-weight-bold">配送先</td>
           <td>
             〒<%= @order.post_code.to_s.insert(3, "-") %> <%= @order.address %></br>
             <%= @order.owner %>
           </td>
         </tr>
         <tr>
-          <th>支払方法</th>
+          <td class="font-weight-bold">支払方法</td>
           <td><%= @order.payment_method_i18n %></td>
         </tr>
         <tr>
-          <th class="align-middle">注文ステータス</th>
+          <td class="font-weight-bold align-middle">注文ステータス</td>
           <td>
             <div class="row">
               <%= render 'status-form', order: @order %>
@@ -37,12 +37,12 @@
         <table class="table align-bottom order-products">
           <thead>
             <tr>
-              <th class="order-product-name">商品名</th>
-              <th class="text-center align-middle">単価（税込）</th>
-              <th class="text-center align-middle">数量</th>
-              <th class="text-center align-middle">小計</th>
-              <th class="text-center align-middle">製作ステータス</th>
-              <th></th>
+              <td class="order-product-name font-weight-bold">商品名</td>
+              <td class="text-center align-middle font-weight-bold">単価（税込）</td>
+              <td class="text-center align-middle font-weight-bold">数量</td>
+              <td class="text-center align-middle font-weight-bold">小計</td>
+              <td class="text-center align-middle font-weight-bold">製作ステータス</td>
+              <td></td>
             </tr>
           </thead>
           <tbody class="making-status-list">
@@ -54,15 +54,15 @@
     <div class="col-lg-3">
       <table class="table table-borderless order-total">
         <tr>
-          <th>商品合計</th>
+          <td class="font-weight-bold">商品合計</td>
           <td class="text-right order-total-td"><%= @total.to_s(:delimited) %>円</td>
         </tr>
         <tr>
-          <th>送料</th>
+          <td class="font-weight-bold">送料</td>
           <td class="text-right order-total-td"><%= @order.shipping_fee.to_s(:delimited) %>円</td>
         </tr>
         <tr>
-          <th>請求額合計</th>
+          <td class="font-weight-bold">請求額合計</td>
           <td class="text-right font-weight-bold order-total-td"><%= @order.charge.to_s(:delimited) %>円</td>
         </tr>
       </table>
