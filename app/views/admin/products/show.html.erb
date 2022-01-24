@@ -30,9 +30,9 @@
         <tr>
           <td class="font-weight-bold">販売ステータス</td>
           <% if @product.is_active == true %>
-            <td class="text-success h4 font-weight-bold">販売中</td>
+            <td class="text-action h4 font-weight-bold">販売中</td>
           <% else %>
-            <td class="text-danger h4 font-weight-bold">販売停止中</td>
+            <td class="text-secondary h4 font-weight-bold">販売停止中</td>
           <% end %>
         </tr>
       </table>
@@ -41,7 +41,7 @@
   <div class="row mt-5">
     <div class="col-12">
       <div class="text-center">
-        <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success btn-lg text-center mb-5" %>
+        <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-action btn-lg text-center mb-5" %>
       </div>
     </div>
   </div>
