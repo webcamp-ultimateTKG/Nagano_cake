@@ -1,21 +1,21 @@
 <% if @ship_addresses.present? %>
-  <table class="table my-table">
-    <thead class="table-back">
+  <table class="table table-bordered ship_address_table">
+    <thead>
       <tr>
-        <td>郵便番号</td>
-        <td>住所</td>
-        <td>宛名</td>
-        <td></td>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% ship_addresses.each do |ship_address| %>
         <tr>
           <td>〒<%= ship_address.post_code.insert(3, "-") %></td>
-          <td><%= ship_address.address.truncate(20) %></td>
+          <td><%= ship_address.address.truncate(25) %></td>
           <td><%= ship_address.owner %></td>
           <td class="text-center" id="aaa-#{ship_address.id}">
-            <%= link_to "編集する", edit_ship_address_path(ship_address), class: "btn btn-success" %>
+            <%= link_to "編集する", edit_ship_address_path(ship_address), class: "btn btn-success flex-row mr-3" %>
             <%= link_to "削除する", ship_address_path(ship_address), method: :delete, remote: true, class: "btn btn-danger" %>
           </td>
         </tr>
