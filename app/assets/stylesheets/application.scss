@@ -50,6 +50,18 @@ main {
   border-radius: 25px;
 }
 
+//badge
+
+ .badge-action{
+   background-color: #468966;
+   color: #fff;
+ }
+
+ .badge-attention{
+   background-color: #A61717;
+   color: #fff;
+ }
+
 /*--------- error --------*/
 
 #error_explanation {
