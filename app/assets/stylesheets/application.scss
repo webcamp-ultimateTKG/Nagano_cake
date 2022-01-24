@@ -42,24 +42,39 @@ main {
 }
 
 .btn-action {
-  color: #fff;
+  color: #fafafa;
   background: #468966;
   border: 3px solid #eee;
   border-radius: 25px;
 }
 
+.btn-action:hover {
+  color: #fafafa;
+  background: #316148;
+}
+
 .btn-next {
-  color: #fff;
+  color: #fafafa;
   background: #3E879E;
   border: 3px solid #eee;
   border-radius: 25px;
 }
 
+.btn-next:hover {
+  color: #fafafa;
+  background: #2a6173;
+}
+
 .btn-attention {
-  color: #fff;
+  color: #fafafa;
   background: #A61717;
   border: 3px solid #eee;
   border-radius: 25px;
+}
+
+.btn-attention:hover {
+  color: #fafafa;
+  background: #7d1111;
 }
 
 /*--------- error --------*/
@@ -84,9 +99,6 @@ header {
   }
   .main-header {
     background-color: #4f021e;
-  }
-  .btn:hover {
-    color: #4f021e;
   }
 }
 
