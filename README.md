@@ -1,18 +1,22 @@
 # Nagano_cake
 DMM WEBCAMPの学習コンテンツ、二ヶ月目チーム開発の課題です。
+
 <br>
 
 ##  アプリ作成の背景
 元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るようになった。 InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管理機能を含んだ通販サイトを開設しようと思い至った。
+
 <br>
 
 ## トップ画面
 **↓トップ画面**
 ![top](https://user-images.githubusercontent.com/93575477/150904007-ee18099c-50b4-41f2-876f-b95bca80cd27.png)
+
 <br>
 
 ##  ER図
 ![ER](https://user-images.githubusercontent.com/93575477/150904315-829df852-1f83-4675-88ad-90c2987c35b8.png)
+
 <br>
 
 ## 使い方
@@ -50,16 +54,19 @@ PASSWORD=任意のパスワード
 ```
 rails db:seed
 ```
+
 <br>
 
 ## 使用ツール
 Cloud9
+
 <br>
 
 ## 使用技術
 - Ruby 2.6.3
 - Ruby on Rails 5.2.6
 - Bootstrap 4.6.1
+
 <br>
 
 ## アプリ機能一覧
@@ -85,6 +92,7 @@ Cloud9
 * 商品の新規登録、編集機能
 * 会員の閲覧、会員情報の編集機能
 * 注文履歴の閲覧、注文状況の編集機能
+
 <br>
 
 ## メンバー
