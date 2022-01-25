@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <h4 class="title mt-5">商品新規登録</h4>
+  </div>
+  <div class="row">
+    <%= render 'layouts/errors', obj: @product%>
+    <div class='mx-auto col-md-12 mt-3 product-form'>
+      <%= form_with model: @product, url: admin_products_path, local: true do |f| %>
+
+        <div class="form-group row">
+          <%= f.label :image_id, "商品画像", class: "col-form-label offset-sm-3" %>
+          <%= f.attachment_field :image, class: "file" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :name, "商品名", class: "col-form-label offset-sm-3" %>
+          <%= f.text_field :name, :placeholder => "商品名" , class: "form-control col-sm-3" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :introduction, "商品説明", class: "col-form-label offset-sm-3" %>
+          <%= f.text_area :introduction, :placeholder => "ここに説明文を記入します" , class: "form-control col-sm-3" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :genre, "ジャンル", class: "col-form-label offset-sm-3" %>
+          <div class="selectdiv">
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :price, "税抜価格", class: "col-form-label offset-sm-3" %>
+          <%= f.text_field :price, :placeholder => "0000" , class: "form-control col-sm-3" %><span class="new-yen">円</span>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :is_active, "販売ステータス", class: "col-form-label offset-sm-3" %>
+          <div class="continput col-md-1 mr-5">
+            <ul>
+              <li>
+                <%= f.radio_button :is_active, :true, checked: true %>
+                <%= f.label "販売中" %>
+                <div class="bullet">
+                  <div class="line zero"></div>
+                  <div class="line one"></div>
+                  <div class="line two"></div>
+                  <div class="line three"></div>
+                  <div class="line four"></div>
+                  <div class="line five"></div>
+                  <div class="line six"></div>
+                  <div class="line seven"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="continput col-md-2">
+            <ul>
+              <li>
+                <%= f.radio_button :is_active, :false %>
+                <%= f.label "販売停止中" %>
+                <div class="bullet">
+                  <div class="line zero"></div>
+                  <div class="line one"></div>
+                  <div class="line two"></div>
+                  <div class="line three"></div>
+                  <div class="line four"></div>
+                  <div class="line five"></div>
+                  <div class="line six"></div>
+                  <div class="line seven"></div>
+                </div>
+            </ul>
+          </div>
+        </div>
+
+        <div class="action">
+          <%= f.submit "新規登録", class: "btn btn-action col-md-2 btn-create" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

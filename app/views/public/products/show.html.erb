@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mt-4">
+          <%= render 'public/products/genre', genres: @genres %>
+        </div>
+        <div class="col-md-4 mt-4 text-center">
+            <%= attachment_image_tag @product, :image, fallback: "no_image.jpg", class: "product_show_img" %>
+        </div>
+        <div class="col-md-5 mt-4 pl-5 text-left">
+            <div class="row">
+                <h3><strong><%= @product.name %></strong></h3>
+            </div>
+            <div class="row product_info">
+                <h5><%= @product.introduction %></h5>
+            </div>
+            <div class="row mb-2">
+                <h4>¥<%= @product.add_tax_price.to_s(:delimited) %><span class="product_tax_text">(税込)</span></%></h4>
+            </div>
+            <% if @product.is_active == true %>
+                <%= form_with model: @cart_product, local: true do |f| %>
+                    <%= f.hidden_field :product_id, value: @product.id %>
+                    <div class="row">
+                        <div class="selectdiv ml-2" id="product_selectdiv">
+                            <%= f.select :quantity, *[1..10] %>
+                        </div>
+                        <div class="d-flex align-items-center ml-5">
+                            <%= f.submit "カートに入れる", class: "btn btn-action" %>
+                        </div>
+                    </div>
+                <% end %>
+            <% else %>
+                <h3><span class="badge badge-danger py-3">販売停止中</span></h3>
+            <% end %>
+        </div>
+    </div>
+</div>

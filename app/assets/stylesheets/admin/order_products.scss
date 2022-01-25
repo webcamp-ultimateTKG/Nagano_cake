@@ -1,3 +1,31 @@
 // Place all the styles related to the admin/order_products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.order-product-name {
+  width: 180px;
+}
+
+.tax {
+  padding-right: 60px!important;
+}
+
+.subtotal {
+  padding-right: 20px!important;
+}
+
+.order-products {
+  .selectdiv select {
+    width: 100%;
+    height: 40px;
+    padding-right: 30px;
+    padding-left: 10px;
+    margin-left: 20px;
+  }
+  .selectdiv:after {
+    top: 26px;
+    margin-right: 6px;
+  }
+}

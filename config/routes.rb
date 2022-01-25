@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
-
-
   # 顧客用ルーティング
-  devise_for :customers,skip: [:passwords,], controllers: {
+  devise_for :customers, skip: [:passwords, :registrations], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
+  devise_scope :customer do
+    get 'customers/cancel', to: 'public/registrations#cancel', as: :cancel_customer_registration
+    get 'customers/sign_up', to: 'public/registrations#new', as: :new_customer_registration
+    resource :customers, only: [:create], as: 'customer_registration', controller: 'public/registrations'
+  end
 
   scope module: :public do
     resource :customers, only: [:edit, :update] do
@@ -34,7 +38,7 @@ Rails.application.routes.draw do
 
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
-        get "confirm" => "orders#confirm"
+        post "confirm" => "orders#confirm"
         get "thanx" => "orders#thanx"
       end
     end
@@ -50,7 +54,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
 
-    resources :products, except: [:destroy]
+    resources :products, except: [:destroy] do
+      collection do
+        get "search"
+      end
+    end
 
     resources :genres, only: [:index, :create, :edit, :update]
 

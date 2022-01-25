@@ -1,0 +1,12 @@
+<% order_products.each do |order_product| %>
+  <tr>
+    <td class="align-middle"><%= order_product.product.name %></td>
+    <td class="text-right align-middle tax"><%= order_product.tax_in_price.to_i.to_s(:delimited)%></td>
+    <td class="text-center align-middle"><%= order_product.quantity %></td>
+    <td class="text-right align-middle subtotal"><%= order_product.subtotal.to_s(:delimited) %></td>
+    <%= form_with model: order_product, url: admin_order_product_path(order_product), remote: true do |f| %>
+      <td class="text-center align-middle selectdiv"><%= f.select :making_status, OrderProduct.making_statuses_i18n.invert %></td>
+      <td class="text-center align-middle" id="update-btn"><%= f.submit "更新", class: "btn btn-action update-btn" %></td>
+    <% end %>
+  </tr>
+<% end %>

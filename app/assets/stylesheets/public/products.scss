@@ -1,3 +1,49 @@
 // Place all the styles related to the public/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#product_selectdiv select {
+  width: 150px;
+  padding: 0 5px;
+}
+
+.product_show_img{
+  width: 364px;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+
+.product_info{
+  height: 125px;
+}
+
+.product_tax_text{
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.product_card_img{
+  height: 160px;
+  background-size: cover!important;
+  background-position: center!important;
+}
+
+#card_title{
+  font-size: 18px;
+}
+
+.pagination{
+  margin: 0 auto;
+}
+
+.genre_badge{
+  display: flex!important;
+  align-items: flex-end!important;
+}
+
+.card_style_footer{
+  background-color: #fff!important;
+  border-top: none !important;
+  margin: 0 0 0 auto!important;
+}

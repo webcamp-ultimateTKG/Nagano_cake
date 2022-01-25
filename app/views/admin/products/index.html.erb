@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <h4 class="title mt-5">商品一覧</h4>
+    <div class="ml-auto add-product-btn mt-5">
+        <%= link_to "",  new_admin_product_path, class: "fas fa-plus-circle fa-2x" %>
+    </div>
+  </div>
+  <div class="row">
+    <%= render 'index', products: @products %>
+  </div>
+</div>
+

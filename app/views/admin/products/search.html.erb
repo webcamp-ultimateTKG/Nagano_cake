@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+     <h4 class="title">検索結果</h4>
+  </div>
+  <div class="row">
+    <% if @products.present? %>
+      <%= render 'index', products: @products%>
+    <% else %>
+      <h4 class="text-danger text-center">検索ワードにヒットしませんでした</h4>
+    <% end %>
+  </div>
+</div>
+

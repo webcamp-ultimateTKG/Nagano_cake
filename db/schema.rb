@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_16_044429) do
+ActiveRecord::Schema.define(version: 2022_01_18_024958) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(version: 2022_01_16_044429) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-  end
-
-  create_table "cart_items", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "product_id", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "cart_products", force: :cascade do |t|
@@ -81,7 +73,7 @@ ActiveRecord::Schema.define(version: 2022_01_16_044429) do
     t.integer "payment_method", default: 0, null: false
     t.string "post_code", null: false
     t.string "address", null: false
-    t.string "address_owner", null: false
+    t.string "owner", null: false
     t.integer "shipping_fee", null: false
     t.integer "charge", null: false
     t.integer "status", default: 0, null: false

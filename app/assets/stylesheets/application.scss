@@ -13,7 +13,618 @@
  *= require_tree .
  *= require_self
  */
- 
+
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap&family=Kosugi+Maru&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+.text-action {
+  color: #468966;
+}
+
+.text-next {
+  color: #3E879E;
+}
+
+.text-attention {
+  color: #A61717;
+}
+
+.btn-action {
+  color: #fafafa;
+  background: #468966;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
+.btn-action:hover {
+  color: #fafafa;
+  background: #316148;
+}
+
+.btn-next {
+  color: #fafafa;
+  background: #3E879E;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
+.btn-next:hover {
+  color: #fafafa;
+  background: #2a6173;
+}
+
+.btn-attention {
+  color: #fafafa;
+  background: #A61717;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
+
+.btn-attention:hover {
+  color: #fafafa;
+  background: #7d1111;
+}
+
+.badge-action{
+ background-color: #468966;
+ color: #fff;
+}
+
+.badge-attention{
+ background-color: #A61717;
+ color: #fff;
+}
+
+/*--------- error --------*/
+
+#error_explanation {
+  color: red;
+}
+
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+    height: 50px;
+  }
+  label {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.field_with_errors {
+  label {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  textarea {
+    @extend .is-invalid;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  input {
+    height: 50px;
+  }
+}
+
+
+/*--------- header --------*/
+
+header {
+  li , .font {
+    font-family: 'Hina Mincho', serif;
+  }
+  .search {
+    border: 2px solid #ced4da;
+  }
+  .logo {
+    font-family: 'Hina Mincho', serif;
+    font-weight: bold;
+    font-size: 50px;
+  }
+  .main-header {
+    background-color: #4f021e;
+  }
+}
+
+/*-------- footer  --------*/
+
+footer {
+  background-color: #fff;
+  font-family: 'Hina Mincho', serif;
+}
+
+.footer-content {
+  color: black;
+  height: 80px;
+  font-size: 20px;
+  line-height: 80px;
+  margin: 0;
+}
+
+/*-------- sidebar --------*/
+.sidebar {
+  list-style: none;
+}
+
+/*--------  --------*/
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+// table-header
+th{
+  background-color: #edebec;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+// contents-title
+.title{
+  background-color: #edebec;
+  padding: 0 20px;
+}
+
+// link
+.link_border{
+  border-bottom: 1px solid #357f96;
+}
+
+.link_text{
+  color: #357f96;
+}
+
+.link_text:hover{
+  color: #47a6c4;
+}
+
+.this-link{
+  font-size: 17px;
+  margin-left: 17px;
+}
+
+// kaminari
+.page-item.active .page-link{
+  background-color: #357f96;
+}
+
+.page-link{
+  color: #357f96;
+}
+
+.address_wrap{
+  width: 900px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nothing_msg{
+  padding: 100px;
+}
+
+// 小さめ横長画像サイズ指定
+.small_wide_image_size{
+  width: 77px;
+  height: 55px;
+  background-size: cover;
+  background-position: center;
+  float: right;
+}
+
+// genre-sidebar
+.genre_title{
+  font-size: 22px;
+  margin-bottom: 0;
+  text-align: center;
+  color: #360214!important;
+}
+
+// 文字色
+.color_text{
+  color: #47041d!important;
+}
+
+// セレクトボックスCSS
+.selectdiv {
+  position: relative;
+  /*Don't really need this just for demo styling*/
+
+  float: left;
+}
+
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+display: none;
+}
+
+.selectdiv:after {
+  content: '<>';
+  font: 17px "Consolas", monospace;
+  color: #333;
+  -webkit-transform: rotate(90deg)!important;
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 11px;
+  /*Adjust for position however you want*/
+
+  top: 18px;
+  padding: 0 0 2px;
+  border-bottom: 1px solid #999;
+  /*left line */
+
+  position: absolute;
+  pointer-events: none;
+}
+
+.selectdiv select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
+
+  display: block;
+  height: 50px;
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  -ms-word-break: normal;
+  word-break: normal;
+}
+
+// ラジオボタンCSS
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+
+.continput ul{
+  list-style-type: none;
+  width: 220px;
+  margin-left: 10px;
+}
+
+.continput li {
+  position: relative;
+  padding: 10px;
+  padding-left: 40px;
+  height:30px;
+}
+
+.continput label:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    //中心点の色指定
+    background: #a13059;
+    position: absolute;
+    left: 7px;
+    bottom: 1px;
+    // box-sizing: border-box;
+    border-radius: 50%;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  -webkit-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 15px);
+  cursor: pointer;
+}
+
+.bullet {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    left: 0.9px;
+    top: 7.9px;
+    //輪の色指定
+    border: 4px solid #4f021e;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked ~ .bullet {
+  position:absolute;
+  opacity: 1;
+  animation-name: explode;
+  animation-duration: 0.350s;
+}
+
+.line {
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  //しずくの色指定
+  background-color: #a13059;
+  opacity:0;
+}
+
+.line.zero {
+  left: 11px;
+  top: -21px;
+  transform: translateY(20px);
+  width: 2px;
+  height: 10px;
+}
+
+.line.one {
+  right: -7px;
+  top: -11px;
+  transform: rotate(-55deg) translate(-9px);
+}
+
+.line.two {
+  right: -20px;
+  top: 11px;
+  transform: translate(-9px);
+}
+
+.line.three {
+  right: -8px;
+  top: 35px;
+  transform: rotate(55deg) translate(-9px);
+}
+
+.line.four {
+  left: -8px;
+  top: -11px;
+  transform: rotate(55deg) translate(9px);
+}
+
+.line.five {
+  left: -20px;
+  top: 11px;
+  transform: translate(9px);
+}
+
+.line.six {
+  left: -8px;
+  top: 35px;
+  transform: rotate(-55deg) translate(9px);
+}
+
+.line.seven {
+  left: 11px;
+  bottom: -21px;
+  transform: translateY(-20px);
+  width: 2px;
+  height: 10px;
+}
+
+input[type="radio"]:checked ~ .bullet .line.zero{
+  animation-name:drop-zero;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.one{
+  animation-name:drop-one;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.two{
+  animation-name:drop-two;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.three{
+  animation-name:drop-three;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.four{
+  animation-name:drop-four;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.five{
+  animation-name:drop-five;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.six{
+  animation-name:drop-six;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.seven{
+  animation-name:drop-seven;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes explode {
+  0%{
+    opacity: 0;
+    transform: scale(10);
+  }
+  60%{
+    opacity: 1;
+    transform: scale(0.5);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drop-zero {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    height: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: translateY(-2px);
+    height: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-one {
+  0% {
+    opacity: 0;
+    transform: rotate(-55deg) translate(-20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: rotate(-55deg) translate(9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-two {
+  0% {
+    opacity: 0;
+    transform: translate(-20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: translate(9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-three {
+  0% {
+    opacity: 0;
+    transform: rotate(55deg) translate(-20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: rotate(55deg) translate(9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-four {
+  0% {
+    opacity: 0;
+    transform: rotate(55deg) translate(20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: rotate(55deg) translate(-9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-five {
+  0% {
+    opacity: 0;
+    transform: translate(20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: translate(-9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-six {
+  0% {
+    opacity: 0;
+    transform: rotate(-55deg) translate(20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: rotate(-55deg) translate(-9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-seven {
+0% {
+    opacity: 0;
+    transform: translateY(-20px);
+    height: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: translateY(2px);
+    height: 0px;
+    opacity:0;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .address_wrap{
+    width: 500px;
+  }
+}
